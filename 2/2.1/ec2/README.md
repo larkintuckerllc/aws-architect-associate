@@ -19,25 +19,41 @@
 -AWS-[Getting started with Amazon EC2 Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
 
 > On-Demand: With On-Demand instances, you pay for compute capacity by the hour or the second depending on which instances you run.
-...
+
+.
+
 > Spot-Instance: Amazon EC2 Spot instances allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price
-...
+
+.
+
 > Savings Plans: Savings Plans are a flexible pricing model that offer low prices on EC2 and Fargate usage, in exchange for a commitment to a consistent amount of usage (measured in $/hour) for a 1 or 3 year term.
-...
+
+.
+
 > Reserved Instances: Reserved Instances provide you with a significant discount (up to 75%) compared to On-Demand instance pricing. In addition, when Reserved Instances are assigned to a specific Availability Zone, they provide a capacity reservation, giving you additional confidence in your ability to launch instances when you need them.
-...
+
+.
+
 > Dedicated Host: A Dedicated Host is a physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses, including Windows Server, SQL Server, and SUSE Linux Enterprise Server (subject to your license terms), and can also help you meet compliance requirements
 
 -AWS-[Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/)
 
 > EC2 usage is calculated by either the hour or the second, depending on which AMI you're running.
-...
+
+.
+
 > When reviewing your EC2 usage, consider the following:
-...
+
+.
+
 > If your instance is billed by the hour, then you're billed for a minimum of one hour each time a new instance is started—that is, when it enters the running state.
-...
+
+.
+
 > If your instance is billed by the second, then you're billed for a minimum of 60 seconds each time a new instance is started—that is, when it enters the running state.
-...
+
+.
+
 > Instances that are in any other state aren't billed.
 
 -AWS-[How are EC2 instance-hours billed?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/)
