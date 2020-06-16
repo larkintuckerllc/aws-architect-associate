@@ -1,14 +1,20 @@
 # Elastic Cloud Computer (EC2)
 
-## Overview
+## Concepts
+
+### Overview
 
 > Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity, reducing your need to forecast traffic.
 
 -AWS-[What is Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
+### Key Pair
+
 > AWS uses public-key cryptography to secure the login information for your instance. A Linux instance has no password; you use a key pair to log in to your instance securely. You specify the name of the key pair when you launch your instance, then provide the private key when you log in using SSH.
 
 -AWS-[Setting up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html)
+
+### Security Group
 
 > Security groups act as a firewall for associated instances, controlling both inbound and outbound traffic at the instance level. You must add rules to a security group that enable you to connect to your instance from your IP address using SSH. You can also add rules that allow inbound and outbound HTTP and HTTPS access from anywhere.
 
@@ -17,6 +23,8 @@
 ![EC2](ec2.png)
 
 -AWS-[Getting started with Amazon EC2 Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
+
+### Pricing
 
 > On-Demand: With On-Demand instances, you pay for compute capacity by the hour or the second depending on which instances you run.
 
@@ -52,11 +60,25 @@
 
 > If your instance is billed by the second, then you're billed for a minimum of 60 seconds each time a new instance is started—that is, when it enters the running state.
 
-&nbsp;
+nbsp;
 
 > Instances that are in any other state aren't billed.
 
 -AWS-[How are EC2 instance-hours billed?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/)
+
+### Custom AMI
+
+> First, launch an instance from an AMI that's similar to the AMI that you'd like to create. You can connect to your instance and customize it. When the instance is configured correctly, ensure data integrity by stopping the instance before you create an AMI, then create the image. 
+
+&nbsp;
+
+> During the AMI-creation process, Amazon EC2 creates snapshots of your instance's root volume and any other EBS volumes attached to your instance. You're charged for the snapshots until you deregister the AMI and delete the snapshots.
+
+&nbsp;
+
+> If you have a snapshot of the root device volume of an instance, you can create an AMI from this snapshot using the AWS Management Console or the command line.
+
+-AWS-[Creating an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
 
 ## Challenges
 
@@ -90,9 +112,11 @@
 
 #### Supplemental Tasks
 
-1. Update instance packages
+1. Observe EBS volume is marked by default *Delete on termination*
 
-2. Stop instance
+2. Update instance packages
+
+3. Stop instance
 
 ### Create EC2 Spot Instance
 
@@ -105,3 +129,21 @@
 1. Observe price difference between On-Demand and Spot pricing
 
 2. Teminate instance
+
+### Create Custom AMI
+
+* Regional resource
+
+* From *my-ec2* instance
+
+* Name: *my-ami*
+
+#### Supplemental Tasks
+
+1. Create and terminate EC2 instance using *my-ami* AMI
+
+2. Delete AMI
+
+### User Data
+
+TODO
