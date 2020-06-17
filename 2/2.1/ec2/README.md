@@ -178,47 +178,53 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 ### Create Key Pair
 
-* Regional resource
+1. Create a Key Pair in a Region
+
+Properties:
 
 * Name: *my-key-pair*
 
 ### Create Security Group
 
-* Related to Regional Resource VPC
+1. Create a security group in default VPC in a Region
 
-* Enable Inbound SSH from 0.0.0.0/0
+Properties:
+
+* Enable Inbound SSH from *0.0.0.0/0*
 
 * Name: *my-security-group*
 
 ### Create EC2 Instance
 
-* Related to Subnet Related to Regional Resource VPC
+1. Create an EC2 instance in default Subnet in default VPC in a Region
 
-* AMI: Amazon Linux 2 AMI (HVM), SSD Volume Type
+Properties:
 
-* Type: t2-micro
+* AMI: *Amazon Linux 2 AMI (HVM), SSD Volume Type*
 
-* Security Group: my-security-group
+* Type: *t2-micro*
 
-* Key Pair: my-key-pair
+* Security Group: *my-security-group*
+:
+* Key Pair: *my-key-pair*
 
 * Name: *my-ec2*
 
 #### Supplemental Tasks
 
-1. Observe AMI virtualization type (HVM)
+1. Observe AMI virtualization type: *HVM*
 
-2. Observe root volume is EBS (not Instance Store)
+2. Observe root volume type: *EBS*
 
-3. Observe EBS volume is marked by default *Delete on termination*
+3. Observe EBS volume is marked by default: *Delete on termination*
 
-4. Update instance packages
+4. Login and update instance packages
 
 5. Stop instance
 
 ### Create EC2 Spot Instance
 
-* Same as Create EC2 Instance except Name: *my-spot-ec2*
+1. Same as Create EC2 Instance except Name: *my-spot-ec2*
 
 **note**: Tried multiple regions; repeatedly got error trying to launch.
 
@@ -248,9 +254,9 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 ### Add Tag to *my-ec2* Instance
 
-* Tag: my-tag
+* Tag: *my-tag*
 
-* Value: my-value
+* Value: *my-value*
 
 ### Associate Elastic IP Address
 
@@ -284,6 +290,8 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 4. Browse public IP address
 
+Properties:
+
 * Name: *my-user-data-ec2*
 
 * User Data:
@@ -303,7 +311,9 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 ### Change Instance Type
 
-Instance: *my-ec2*
+1. Change instance type of *my-ec2*
+
+Properties:
 
 Type: *t2-small*
 
@@ -313,9 +323,9 @@ Type: *t2-small*
 
 ### Create Custom AMI
 
-* Regional resource
+1. Create AMI from *my-ec2* in Region
 
-* From *my-ec2* instance
+Properties:
 
 * Name: *my-ami*
 
@@ -327,8 +337,8 @@ Type: *t2-small*
 
 ### Copy an AMI
 
-1. Copy *my-ami* AMI to a different region
+1. Copy *my-ami* AMI to a different Region
 
 ### Review Service Quota
 
-1. Review service quota for region
+1. Review Service Quota for Region
