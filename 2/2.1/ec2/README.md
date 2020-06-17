@@ -60,11 +60,65 @@
 
 > If your instance is billed by the second, then you're billed for a minimum of 60 seconds each time a new instance is started—that is, when it enters the running state.
 
-nbsp;
+&nbsp;
 
 > Instances that are in any other state aren't billed.
 
 -AWS-[How are EC2 instance-hours billed?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/)
+
+### AMI Properties
+
+> Linux Amazon Machine Images use one of two types of virtualization: paravirtual (PV) or hardware virtual machine (HVM). The main differences between PV and HVM AMIs are the way in which they boot and whether they can take advantage of special hardware extensions (CPU, network, and storage) for better performance.
+
+&nbsp;
+
+> For the best performance, we recommend that you use current generation instance types and HVM AMIs when you launch your instances.
+
+-AWS-[Linux AMI virtualization types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)
+
+> When you launch an instance, the root device volume contains the image used to boot the instance. When we introduced Amazon EC2, all AMIs were backed by Amazon EC2 instance store, which means the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3. After we introduced Amazon EBS, we introduced AMIs that are backed by Amazon EBS. This means that the root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
+
+&nbsp;
+
+> You can choose between AMIs backed by Amazon EC2 instance store and AMIs backed by Amazon EBS. We recommend that you use AMIs backed by Amazon EBS, because they launch faster and use persistent storage.
+
+-AWS-[Amazon EC2 root device volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html)
+
+### Monitoring
+
+> System status checks – monitor the AWS systems required to use your instance to ensure that they are working properly. These checks detect problems with your instance that require AWS involvement to repair.
+
+&nbsp;
+
+> Instance status checks – monitor the software and network configuration of your individual instance. These checks detect problems that require your involvement to repair.
+
+&nbsp;
+
+> Amazon CloudWatch alarms – watch a single metric over a time period you specify, and perform one or more actions based on the value of the metric relative to a given threshold over a number of time periods.
+
+-AWS-[Automated and manual monitoring](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_automated_manual.html)
+
+> By default, Amazon EC2 sends metric data to CloudWatch in 5-minute periods. To send metric data for your instance to CloudWatch in 1-minute periods, you can enable detailed monitoring on the instance.
+
+-AWS-[Monitoring your instances using CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html)
+
+**note:** Collecting more system-level metrics, e.g., memory and disk utilization, and logs requires installing and configuring the CloudWatch Agent.
+
+### Tagging
+
+> A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define.
+
+&nbsp;
+
+Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type—you can quickly identify a specific resource based on the tags you've assigned to it. For example, you could define a set of tags for your account's Amazon EC2 instances that helps you track each instance's owner and stack level.
+
+-AWS-[Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
+
+### Elastic IP
+
+> An Elastic IP address is a static IPv4 address designed for dynamic cloud computing. An Elastic IP address is associated with your AWS account. With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.
+
+-AWS-[Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 
 ### Custom AMI
 
@@ -80,7 +134,7 @@ nbsp;
 
 -AWS-[Creating an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
 
-## Challenges
+## Exercises
 
 ### Create Key Pair
 
@@ -112,23 +166,71 @@ nbsp;
 
 #### Supplemental Tasks
 
-1. Observe EBS volume is marked by default *Delete on termination*
+1. Observe AMI virtualization type (HVM)
 
-2. Update instance packages
+2. Observe root volume is EBS (not Instance Store)
 
-3. Stop instance
+3. Observe EBS volume is marked by default *Delete on termination*
+
+4. Update instance packages
+
+5. Stop instance
 
 ### Create EC2 Spot Instance
 
 * Same as Create EC2 Instance except Name: *my-spot-ec2*
 
-**note**: Tried multiple regions; repeatedly got error trying to launch
+**note**: Tried multiple regions; repeatedly got error trying to launch.
 
 #### Supplemental Tasks
 
 1. Observe price difference between On-Demand and Spot pricing
 
 2. Teminate instance
+
+### Monitor EC2 Instance
+
+1. Start *my-ec2* instance
+
+2. Observe System and Instance Status Checks
+
+3. Create Alarm *my-alarm* to *my-topic* Topic if CPU average is at 50% for 5 minute
+
+4. Install *stress* CLI tool; requires enabling EPEL repo in Linux 2 AMI
+
+5. Using *stress* CLI, stress CPU for 5 minutes; observe alarm
+
+#### Supplemental Tasks
+
+1. Observe no memory or disk utilization metrics
+
+2. Stop *my-ec2* instance
+
+### Add Tag to *my-ec2* Instance
+
+* Tag: my-tag
+
+* Value: my-value
+
+### Associate Elastic IP Address
+
+1. Allocate Elastic IP Address
+
+2. Associate Elastic IP Address to *my-ec2* instance
+
+#### Supplemental Tasks
+
+1. Disassociate Elastic IP Address from *my-ec2* instance
+
+2. Deallocate Elastic IP Address
+
+### Meta ? User Data
+
+TODO
+
+### Change Instance Type
+
+TODO
 
 ### Create Custom AMI
 
@@ -142,8 +244,10 @@ nbsp;
 
 1. Create and terminate EC2 instance using *my-ami* AMI
 
-2. Delete AMI
+### Copy an AMI
 
-### User Data
+TODO
+
+### Service Quota
 
 TODO
