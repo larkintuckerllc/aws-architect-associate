@@ -120,6 +120,26 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 -AWS-[Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 
+### Instance Metadata
+
+> Instance metadata is data about your instance that you can use to configure or manage the running instance. Instance metadata is divided into categories, for example, host name, events, and security groups.
+
+-AWS-[Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+
+### Instance User Data
+
+> User data must be base64-encoded. The Amazon EC2 console can perform the base64-encoding for you or accept base64-encoded input.
+
+&nbsp;
+
+> User data is limited to 16 KB, in raw form, before it is base64-encoded. The size of a string of length n after base64-encoding is ceil(n/3)*4.
+
+&nbsp;
+
+> If you stop an instance, modify its user data, and start the instance, the updated user data is not executed when you start the instance.
+
+-AWS-[Working with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html)
+
 ### Custom AMI
 
 > First, launch an instance from an AMI that's similar to the AMI that you'd like to create. You can connect to your instance and customize it. When the instance is configured correctly, ensure data integrity by stopping the instance before you create an AMI, then create the image. 
@@ -224,9 +244,42 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 2. Deallocate Elastic IP Address
 
-### Meta ? User Data
+### Explore Instance Metadata
 
-TODO
+1. Start *my-ec2* instance
+
+2. Retrieve public DNS name using IMDSv1, e.g., `curl http://169.254.169.254/latest/meta-data/public-hostname`
+
+#### Supplemental Tasks
+
+1. Stop *my-ec2* instance
+
+### Create EC2 Instance with User Data
+
+1. Update *my-security-group* to enable inbound HTTP
+
+2. Create new instance much the same as *my-ec2*; exceptions below
+
+3. Observe system log
+
+4. Browse public IP address
+
+* Name: *my-user-data-ec2*
+
+* User Data:
+
+```plaintext
+#!/bin/bash -xe
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+  yum update -y
+  yum install httpd -y
+  systemctl enable httpd
+  systemctl start httpd
+```
+
+#### Supplemental Tasks
+
+1. Terminate *my-user-data-ec2* instance
 
 ### Change Instance Type
 
