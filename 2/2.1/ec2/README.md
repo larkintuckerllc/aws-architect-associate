@@ -327,7 +327,7 @@ Type: *t2-small*
 
 ### Create Custom AMI
 
-1. Create AMI from *my-ec2* in Region
+1. Create AMI from *my-ec2* EC2 Instance in Region
 
 Properties:
 
@@ -337,11 +337,17 @@ Properties:
 
 1. Observe that while one can create an AMI when Instance is running, it is not recommended
 
-2. Create and terminate EC2 instance using *my-ami* AMI
+2. Create and terminate EC2 Instance using *my-ami* AMI
+
+3. Terminate *my-ec2* EC2 Instance
 
 ### Copy an AMI
 
 1. Copy *my-ami* AMI to a different Region
+
+#### Supplemental Tasks
+
+1. Deregister *my-ami* AMI
 
 ### Review Service Quota
 
