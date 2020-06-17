@@ -140,6 +140,12 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 -AWS-[Working with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html)
 
+### Instance Type
+
+> As your needs change, you might find that your instance is over-utilized (the instance type is too small) or under-utilized (the instance type is too large). If this is the case, you can change the size of your instance. For example, if your t2.micro instance is too small for its workload, you can change it to another instance type that is appropriate for the workload.
+
+-AWS-[Changing the instance type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html)
+
 ### Custom AMI
 
 > First, launch an instance from an AMI that's similar to the AMI that you'd like to create. You can connect to your instance and customize it. When the instance is configured correctly, ensure data integrity by stopping the instance before you create an AMI, then create the image. 
@@ -283,7 +289,11 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 ### Change Instance Type
 
-TODO
+Type: *t2-small*
+
+#### Supplemental Tasks
+
+1. Observe that one cannot change Instance Type if Instance is running
 
 ### Create Custom AMI
 
