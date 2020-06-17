@@ -160,6 +160,20 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 -AWS-[Creating an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
 
+> You can copy an Amazon Machine Image (AMI) within or across AWS Regions using the AWS Management Console, the AWS Command Line Interface or SDKs, or the Amazon EC2 API, all of which support the CopyImage action. You can copy both Amazon EBS-backed AMIs and instance-store-backed AMIs. You can copy AMIs with encrypted snapshots and also change encryption status during the copy process.
+
+-AWS-[Copying an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html)
+
+### Service Quota
+
+> Amazon EC2 provides different resources that you can use. These resources include images, instances, volumes, and snapshots. When you create your AWS account, we set default quotas (also referred to as limits) on these resources on a per-Region basis. For example, there is a limit on the number of instances that you can launch in a Region. Therefore, when you launch an instance in the US West (Oregon) Region, the request must not cause your usage to exceed your current instance limit in that Region.
+
+&nbsp;
+
+> The Amazon EC2 console provides limit information for the resources managed by the Amazon EC2 and Amazon VPC consoles. You can request an increase for many of these limits. Use the limit information that we provide to manage your AWS infrastructure. Plan to request any limit increases in advance of the time that you'll need them.
+
+-AWS-[Amazon EC2 Service Quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
+
 ## Exercises
 
 ### Create Key Pair
@@ -289,6 +303,8 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 ### Change Instance Type
 
+Instance: *my-ec2*
+
 Type: *t2-small*
 
 #### Supplemental Tasks
@@ -305,12 +321,14 @@ Type: *t2-small*
 
 #### Supplemental Tasks
 
-1. Create and terminate EC2 instance using *my-ami* AMI
+1. Observe that while one can create an AMI when Instance is running, it is not recommended
+
+2. Create and terminate EC2 instance using *my-ami* AMI
 
 ### Copy an AMI
 
-TODO
+1. Copy *my-ami* AMI to a different region
 
-### Service Quota
+### Review Service Quota
 
-TODO
+1. Review service quota for region
