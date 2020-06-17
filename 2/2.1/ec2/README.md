@@ -252,7 +252,11 @@ Properties:
 
 2. Stop *my-ec2* instance
 
-### Add Tag to *my-ec2* Instance
+### Add Tag to Instance
+
+1. Add Tag to *my-ec2* Instance
+
+Properties:
 
 * Tag: *my-tag*
 
