@@ -113,3 +113,5 @@ Launch Template Properties
 2. Observe that Target Tracking Scaling Polices only support the default EC2 metrics, e.g., CPU.  For example, in order to scale on memory, one will need to Step / Simple Scaling Polices
 
 3. Delete *my-as-group* Auto Scaling Group
+
+4. Observe that deleting Auto Scaling Groups delete their associate EC2 Instances
