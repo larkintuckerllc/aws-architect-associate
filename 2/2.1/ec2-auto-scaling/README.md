@@ -115,3 +115,9 @@ Launch Template Properties
 3. Delete *my-as-group* Auto Scaling Group
 
 4. Observe that deleting Auto Scaling Groups delete their associate EC2 Instances
+
+5. Delete *my-launch-template* Launch Template
+
+6. Deregister *my-ami* AMI
+
+7. Delete Snapshot backing the *my-ami* AMI

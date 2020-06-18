@@ -349,6 +349,8 @@ Properties:
 
 1. Deregister *my-ami* AMI
 
+2. Delete Snapshot backing *my-ami* AMI
+
 ### Review Service Quota
 
 1. Review Service Quota for Region
