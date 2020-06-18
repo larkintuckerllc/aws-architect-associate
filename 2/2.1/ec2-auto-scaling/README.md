@@ -48,11 +48,11 @@
 
 #### Assumptions
 
-Understand material in [ec2](../ec2) and completed exercises:
+Understand material in [Elastic Cloud Compute (EC2)](../ec2) and completed exercises:
 
-* Create Key Pair [ec2](../ec2)
+* Create Key Pair [Elastic Cloud Compute (EC2)](../ec2)
 
-* Create Security Group [ec2](../ec2)
+* Create Security Group [Elastic Cloud Compute (EC2)](../ec2)
 
 #### Tasks
 

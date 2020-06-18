@@ -48,6 +48,66 @@
 
 -AWS-[What Is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
 
-### Exercises
+## Exercises
 
-TODO
+### Create Target Group
+
+#### Assumptions
+
+Understand material in [EC2 Auto Scaling](../../2.1/ec2-auto-scaling) and completed exercises:
+
+* Create Launch Template [ec2](../../2.1/ec2-auto-scaling)
+
+* Create Auto Scaling Group [ec2](../../2.1/ec2-auto-scaling)
+
+Except here install / enable *httpd* package / service instead of *stress* and manually set Auto Scaling ground with desired / minimum / maximum capacities at 3 / 3 / 3.
+
+**note**: Also you need to create some HTML content in the file */var/www/http/index.html*.
+
+**note**: Make sure the *my-security-group* Security Group allows HTTP inbound
+
+#### Steps
+
+1. Create Target Group; properties below
+
+Properties
+
+* Target Type: Instances
+
+* Name: *my-target-group*
+
+* Register Targets: Existing EC2 instances from *my-as-group*
+
+### Create Application Load Balancer
+
+1. Create Application Load Balancer; properties below
+
+Properties
+
+* Type: Application Load Balancer
+
+* Name: *my-alb*
+
+* Availability Zones: Same as for Auto Scaling Group
+
+* Security Group: *my-security-group*
+
+* Target Group: *my-target-group*
+
+#### Supplemental Tasks
+
+1. Validate can browse to Application Load Balancer DNS name
+
+2. Edit *my-as-group* Auto Scaling Group; set its Target Group to *my-target-group*
+
+3. Delete *my-alb* Application Load Balancer
+
+4. Delete *my-target-group* Target Group
+
+5. Delete *my-as-group* Auto Scaling Group
+
+6. Delete *my-launch-template* Launch Template
+
+7. Delete *my-ami* AMI
+
+8. Delete Snapshot backing *my-ami*
