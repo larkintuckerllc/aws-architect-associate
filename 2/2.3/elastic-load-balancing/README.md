@@ -56,9 +56,9 @@
 
 Understand material in [EC2 Auto Scaling](../../2.1/ec2-auto-scaling) and completed exercises:
 
-* Create Launch Template [ec2](../../2.1/ec2-auto-scaling)
+* Create Launch Template [EC2 Auto Scaling](../../2.1/ec2-auto-scaling)
 
-* Create Auto Scaling Group [ec2](../../2.1/ec2-auto-scaling)
+* Create Auto Scaling Group [EC2 Auto Scaling](../../2.1/ec2-auto-scaling)
 
 Except here install / enable *httpd* package / service instead of *stress* and manually set Auto Scaling ground with desired / minimum / maximum capacities at 3 / 3 / 3.
 
