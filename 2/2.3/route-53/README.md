@@ -50,6 +50,12 @@ It is important to know the various DNS record types; described in [Amazon Route
 
 -AWS-[Choosing between alias and non-alias records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
 
+### Sidebar into Certificate Manager
+
+> AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public SSL/TLS X.509 certificates and keys that protect your AWS websites and applications. You can provide certificates for supported AWS services either by issuing them directly with ACM or by importing third-party certificates into the ACM management system. 
+
+-AWS-[What Is AWS Certificate Manager?](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html)
+
 ## Exercises
 
 ### Register a Domain Name
@@ -96,4 +102,48 @@ EC2 Instance Properties
 
 1. Create Alias *A* record, e.g., *todosrus.com*, for root to *A* record, e.g., *www.todosrus.com*
 
+2. Observe web addresses in browser
+
+#### Supplemental Tasks
+
+1. Delete Alias *A* record
+
+2. Delete *A* record
+
+3. Dissassociate and release Elastic IP address
+
+4. Terminate *my-ec2* EC2 Instance
+
 ### Create Alias *A* Record to Elastic Load Balancer
+
+#### Assumptions
+
+Understand material in [Elastic Load Balancing](../load-balancing) and completed exercises:
+
+* [Create Application Load Balancer](../load-balancing)
+
+#### Tasks
+
+1. Create Alias *A* record to Elastic Load Balancer, e.g., *www.todosrus.com*
+
+### Add HTTPS Listener to Application Load Balancer
+
+1. Create wildcard certificate for domain, e.g., **.todosrus.com* and *todosrus.com*
+
+2. Add new HTTPS listener routing to *my-target-group* for *my-alb* using certificate
+
+3. Add HTTPS to *my-security-group* Security Group
+
+4. Validate can browse to HTTPS endpoint
+
+5. Replace HTTP listener to redirect to HTTPS on *my-alb*
+
+6. Create Alias *A* apex record, e.g., *todosrus.com*, to *A* record, e.g., *www.todosrus.com*
+
+7. Add a rule to the HTTPS listener to redirect traffic to apex record to redirect to *A* record, e.g., *www.todosrus.com*.
+
+#### Supplemental Tasks
+
+1. Delete Alias *A* records
+
+2. Delete objects as per *Supplemental Tasks* in exercise [Create Application Load Balancer](../load-balancing)
