@@ -28,6 +28,10 @@
 
 -AWS-[Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 
+> EBS Magnetic volumes are backed by hard disk drives (HDDs) and can be used for workloads with smaller datasets where data is accessed infrequently or when performance consistency isn't of primary importance. EBS Magnetic volumes provide approximately 100 IOPS on average, with an ability to burst to hundreds of IOPS, and support volumes from 1GB to 1TB in size.
+
+-AWS-[Amazon EBS previous generation volumes](https://aws.amazon.com/ebs/previous-generation/)
+
 > An Amazon EBS volume is a durable, block-level storage device that you can attach to your instances. After you attach a volume to an instance, you can use it as you would use a physical hard drive. EBS volumes are flexible. For current-generation volumes attached to current-generation instance types, you can dynamically increase size, modify the provisioned IOPS capacity, and change volume type on live production volumes.
 
 &nbsp;
@@ -53,6 +57,24 @@
 > Before extending a file system that contains valuable data, it is best practice to create a snapshot of the volume, in case you need to roll back your changes
 
 -AWS-[Extending a Linux file system after resizing a volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
+
+### Encryption
+
+> Amazon EBS encryption offers a straight-forward encryption solution for your EBS resources that doesn't require you to build, maintain, and secure your own key management infrastructure. It uses AWS Key Management Service (AWS KMS) customer master keys (CMK) when creating encrypted volumes and snapshots.
+
+&nbsp;
+
+> Encryption operations occur on the servers that host EC2 instances, ensuring the security of both data-at-rest and data-in-transit between an instance and its attached EBS storage.
+
+&nbsp;
+
+> When you create a new, empty EBS volume, you can encrypt it by enabling encryption for the specific volume creation operation. If you enabled EBS encryption by default, the volume is automatically encrypted.
+
+&nbsp;
+
+> Although there is no direct way to encrypt an existing unencrypted volume or snapshot, you can encrypt them by creating either a volume or a snapshot.
+
+-AWS-[Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EBSEncryption.html)
 
 ## Exercises
 
@@ -124,3 +146,20 @@ Properties
 
 2. Extend the XFS filesystem
 
+### Encrypt EBS Volume
+
+1. Create Snapshot of *my-ebs* volume; observe cannot encrypt
+
+2. Copy Snapshot; enable encryption (done for learning purposes only)
+
+3. Create Volume from original Snapshot; enable encryption; name it *my-encrypted-ebs*
+
+4. Login to *my-ec2*, unmount *my-ebs* volume
+
+5. Detach volume from *my-ec2*
+
+6. Attach volume *my-encrypted-ebs* to *my-ec2*
+
+7. Mount EBS volume on */var/www/html*
+
+8. Set volume to auto-mount on boot (but noticed that block id was same)
