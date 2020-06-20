@@ -28,6 +28,10 @@
 
 -AWS-[Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 
+> Amazon EBS volumes are placed in a specific Availability Zone where they are automatically replicated to protect you from the failure of a single component. All EBS volume types offer durable snapshot capabilities and are designed for 99.999% availability.
+
+-AWS-[Amazon EBS features](https://aws.amazon.com/ebs/features/)
+
 > EBS Magnetic volumes are backed by hard disk drives (HDDs) and can be used for workloads with smaller datasets where data is accessed infrequently or when performance consistency isn't of primary importance. EBS Magnetic volumes provide approximately 100 IOPS on average, with an ability to burst to hundreds of IOPS, and support volumes from 1GB to 1TB in size.
 
 -AWS-[Amazon EBS previous generation volumes](https://aws.amazon.com/ebs/previous-generation/)
@@ -43,6 +47,22 @@
 > After you attach an Amazon EBS volume to your instance, it is exposed as a block device. You can format the volume with any file system and then mount it. After you make the EBS volume available for use, you can access it in the same ways that you access any other volume. Any data written to this file system is written to the EBS volume and is transparent to applications using the device.
 
 -AWS-[Making an Amazon EBS volume available for use on Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+
+> Max IOPS per instance 80,000
+
+&nbsp;
+
+> To achieve this throughput, you must have an instance that supports EBS optimization.
+
+-AWS-[Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-volume-types.html)
+
+> With Amazon EBS, you can use any of the standard RAID configurations that you can use with a traditional bare metal server, as long as that particular RAID configuration is supported by the operating system for your instance. This is because all RAID is accomplished at the software level. For greater I/O performance than you can achieve with a single volume, RAID 0 can stripe multiple volumes together; for on-instance redundancy, RAID 1 can mirror two volumes together.
+
+&nbsp;
+
+> To create a consistent set of snapshots for your RAID array, use EBS multi-volume snapshots. Multi-volume snapshots allow you to take point-in-time, data coordinated, and crash-consistent snapshots across multiple EBS volumes attached to an EC2 instance. You do not have to stop your instance to coordinate between volumes to ensure consistency because snapshots are automatically taken across multiple EBS volumes.
+
+-AWS-[RAID Configuration on Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
 
 ### Operations
 
@@ -221,3 +241,25 @@ Properties
 7. Mount EBS volume on */var/www/html*
 
 8. Set volume to auto-mount on boot (but noticed that block id was same)
+
+#### Supplemental Tasks
+
+1. Login to *my-ec2*, unmount *my-encrypted-ebs* volume
+
+2. Detach volume from *my-ec2*
+
+3. Remove auto-mount on boot
+
+4. Delete *my-ebs* and *my-encrypted-ebs* EBS volumes
+
+5. Delete Snapshots
+
+### Create RAID 0 Volume
+
+1. Create a RAID 0 volume with two EBS volumes attached to *my-ec2* EC2 Instance
+
+#### Supplemental Tasks
+
+1. Delete *my-ec2_ EC2 Instance
+
+2. Delete the two EBS volumes
