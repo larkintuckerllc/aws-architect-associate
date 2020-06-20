@@ -108,6 +108,14 @@
 
 -AWS-[Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-volume-types.html)
 
+### ST1 Performance Characteristics
+
+> Like gp2, st1 uses a burst-bucket model for performance. Volume size determines the baseline throughput of your volume, which is the rate at which the volume accumulates throughput credits. Volume size also determines the burst throughput of your volume, which is the rate at which you can spend credits when they are available. Larger volumes have higher baseline and burst throughput. The more credits your volume has, the longer it can drive I/O at the burst level.
+
+![ST1 Burst Bucket](st1-burst-bucket.png)
+
+![ST1 Base vs Burst](st1_base_v_burst.png)
+
 ## Exercises
 
 ### Create EBS Volume
