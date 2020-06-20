@@ -76,6 +76,22 @@
 
 -AWS-[Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EBSEncryption.html)
 
+### GP2 Performance Characteristics
+
+> General Purpose SSD (gp2) volumes offer cost-effective storage that is ideal for a broad range of workloads. These volumes deliver single-digit millisecond latencies and the ability to burst to 3,000 IOPS for extended periods of time. Between a minimum of 100 IOPS (at 33.33 GiB and below) and a maximum of 16,000 IOPS (at 5,334 GiB and above), baseline performance scales linearly at 3 IOPS per GiB of volume size. AWS designs gp2 volumes to deliver their provisioned performance 99% of the time. A gp2 volume can range in size from 1 GiB to 16 TiB.
+
+&nbsp;
+
+> The performance of gp2 volumes is tied to volume size, which determines the baseline performance level of the volume and how quickly it accumulates I/O credits; larger volumes have higher baseline performance levels and accumulate I/O credits faster. I/O credits represent the available bandwidth that your gp2 volume can use to burst large amounts of I/O when more than the baseline performance is needed. The more credits your volume has for I/O, the more time it can burst beyond its baseline performance level and the better it performs when more performance is needed.
+
+![GP2 Burst Bucket](gp2-burst-bucket.png)
+
+> The throughput limit is between 128 MiB/s and 250 MiB/s, depending on the volume size. Volumes smaller than 170 GiB deliver a maximum throughput of 128 MiB/s. Volumes larger than 170 GiB but smaller than 334 GiB deliver a maximum throughput of 250 MiB/s if burst credits are available.
+
+-AWS-[Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-volume-types.html)
+
+![GP2 Performance](gp2.png)
+
 ## Exercises
 
 ### Create EBS Volume
