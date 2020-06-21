@@ -1,6 +1,3 @@
-# Identity Access Management (IAM)
+# 3.1 Design secure access to AWS resources
 
-## Concepts
-
-## Exercises
-
+* [AWS Identit Access Management (IAM)](iam)
