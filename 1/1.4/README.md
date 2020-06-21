@@ -3,3 +3,5 @@
 * [Amazon Elastic Block Store (EBS)](ebs)
 
 * [Amazon Elastic File System (EFS)](efs)
+
+* [Amazon Simple Storage System (S3)](s3)
