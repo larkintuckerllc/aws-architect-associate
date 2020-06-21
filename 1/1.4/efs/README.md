@@ -106,4 +106,124 @@
 
 -AWS-[Amazon EFS Performance](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes)
 
+### Operations
+
+> Instances connect to a file system by using mount targets you create. We recommend creating a mount target in each of your VPC's Availability Zones so that EC2 instances across your VPC can access the file system.
+
+-AWS Console
+
+> Now that you have created a functioning Amazon EFS file system, you can use AWS DataSync to transfer files from an existing file system to Amazon EFS. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect. AWS DataSync can transfer your file data, and also file system metadata such as ownership, time stamps, and access permissions.
+
+-AWS-[Step 3: Transfer Files to Amazon EFS Using AWS DataSync](https://docs.aws.amazon.com/efs/latest/ug/gs-step-four-sync-files.html)
+
+**note**: You also need to specifify a Security Group; need to think about access by the EC2.
+
+> You can configure an Amazon EC2 instance to automatically mount an EFS file system when it reboots in two ways:
+
+&nbsp;
+
+> When you create a new EC2 instance using the Launch Instance Wizard.
+
+&nbsp;
+
+> Update the EC2 /etc/fstab file with an entry for the EFS file system.
+
+-AWS-[Mounting Your Amazon EFS File System Automatically](https://docs.aws.amazon.com/efs/latest/ug/mount-fs-auto-mount-onreboot.html)
+
+> Using the file system's DNS name is your simplest mounting option. The file system DNS name automatically resolves to the mount target’s IP address in the Availability Zone of the connecting Amazon EC2 instance. You can get this DNS name from the console, or if you have the file system ID, you can construct it using the following convention.
+
+ -AWS-[Mounting on Amazon EC2 with a DNS Name](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html)
+
+ > The root directory of a file system, upon creation, is owned by and is writable by the root user, so you need to change permissions to add files.
+
+-AWS-[Step 3: Mount the Amazon EFS File System on the EC2 Instance and Test](https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html)
+
+### Securing Client Access
+
+> You can use both IAM identity policies and resource policies to control NFS client access to Amazon EFS resources in a way that is scalable and optimized for cloud environments. Using IAM, you can permit clients to perform specific actions on a file system, including read-only, write, and root access.
+
+&nbsp;
+
+> NFS clients can identify themselves using an IAM role when connecting to an EFS file system. When a client connects to a file system, Amazon EFS evaluates the file system’s IAM resource policy, which is called a file system policy, along with any identity-based IAM policies to determine the appropriate file system access permissions to grant.
+
+&nbsp;
+
+The default EFS file system policy grants full access to any NFS client that can connect to the file system. The default policy is in effect whenever a user-configured file system policy doesn't exist, including at file system creation
+
+-AWS-[Using IAM to Control NFS Access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html)
+
 ## Exercises
+
+### Create EFS
+
+#### Assumptions
+
+Understand material in [Elastic Cloud Compute (EC2)](../ec2) and completed exercises:
+
+* Create Key Pair [Elastic Cloud Compute (EC2)](../ec2)
+
+* Create Security Group [Elastic Cloud Compute (EC2)](../ec2)
+
+**note**: Need to update *my-security-group* to allow all inbound traffic from same Security Group
+
+#### Tasks
+
+1. Create EFS
+
+Properties;
+
+* All AZ in default VPC
+
+* Security Group: *my-security-group*
+
+### Mount EFS Using NFS Client
+
+1. Create an EC2 instance in default Subnet in default VPC in a Region; properties below
+
+2. Mount / Automount EFS to EC2 using NFS Client (see [documentation](https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html))
+
+3. Unmount EFS from EC2
+
+Properties:
+
+* AMI: *Amazon Linux 2 AMI (HVM), SSD Volume Type*
+
+* Type: *t2-micro*
+
+* Security Group: *my-security-group*
+:
+* Key Pair: *my-key-pair*
+
+* Name: *my-ec2*
+
+#### Supplemental Tasks
+
+1. Terminate instance *my-ec2*
+
+### Mount EFS Using EFS Client
+
+1. Create an EC2 instance in default Subnet in default VPC in a Region; properties below
+
+2. Observe Generated User Data
+
+3. Observe resultant */etc/fstab*
+
+Properties:
+
+* AMI: *Amazon Linux 2 AMI (HVM), SSD Volume Type*
+
+* Type: *t2-micro*
+
+* Filesystem: *my-efs*
+
+* Security Group: *my-security-group*
+:
+* Key Pair: *my-key-pair*
+
+* Name: *my-ec2*
+
+#### Supplemental Tasks
+
+1. Terminate instance *my-ec2*
+
+2. Delete *my-efs* EFS volume
