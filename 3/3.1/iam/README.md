@@ -167,3 +167,17 @@ Properties
 2. Delete *super-user* Role
 
 3. Delete *my-policy* Policy
+
+### Create Service Role
+
+1. Create Role, *my-s3-reader* for EC2 with policy *AmazonS3ReadyOnlyAccess*
+
+2. Create EC2 Instance with Role *my-s3-reader*
+
+3. Login to EC2 Instance and run *aws s3 ls*
+
+#### Supplemental Tasks
+
+1. Delete EC2 Instance
+
+2. Delete *my-s3-reader* Role
