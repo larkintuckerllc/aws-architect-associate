@@ -96,6 +96,12 @@
 
 -AWS-[Roles Terms and Concepts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html)
 
+### Attribute Based Access Control (ABAC)
+
+> Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes. In AWS, these attributes are called tags. Tags can be attached to IAM principals (users or roles) and to AWS resources. You can create a single ABAC policy or small set of policies for your IAM principals. These ABAC policies can be designed to allow operations when the principal's tag matches the resource tag. ABAC is helpful in environments that are growing rapidly and helps with situations where policy management becomes cumbersome.
+
+-AWS-[What Is ABAC for AWS?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html)
+
 ### Operations
 
 > Then you can review the last accessed information for your users or groups to learn when your users last attempted to access the services that your PowerUserExampleCorp policy allows.
