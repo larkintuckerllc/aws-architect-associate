@@ -54,7 +54,7 @@
 
 > Resource-based policies control what actions a specified principal can perform on that resource and under what conditions. Resource-based policies are inline policies, and there are no managed resource-based policies.
 
-![Policy Diagram](policy-summaries_diagram.png)
+![Policy Diagram](policy_summaries-diagram.png)
 
 -AWS-[Overview of Access Management: Permissions and Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html)
 
