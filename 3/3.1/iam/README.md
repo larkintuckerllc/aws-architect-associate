@@ -78,6 +78,30 @@
 
 -AWS-[Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html)
 
+### Roles
+
+> An IAM identity that you can create in your account that has specific permissions. An IAM role has some similarities to an IAM user. Roles and users are both AWS identities with permissions policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session.
+
+&nbsp;
+
+> AWS Service Role: A role that a service assumes to perform actions in your account on your behalf. When you set up some AWS service environments, you must define a role for the service to assume. This service role must include all the permissions required for the service to access the AWS resources that it needs.
+
+&nbsp;
+
+> AWS service-linked role: A unique type of service role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf. The linked service also defines how you create, modify, and delete a service-linked role. A service might automatically create or delete the role.
+
+&nbsp;
+
+> AWS service role for an EC2 instance: A special type of service role that an application running on an Amazon EC2 instance can assume to perform actions in your account. This role is assigned to the EC2 instance when it is launched. Applications running on that instance can retrieve temporary security credentials and perform actions that the role allows.
+
+-AWS-[Roles Terms and Concepts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html)
+
+### Operations
+
+> Then you can review the last accessed information for your users or groups to learn when your users last attempted to access the services that your PowerUserExampleCorp policy allows.
+
+-AWS-[Creating Your First IAM Delegated User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html)
+
 ## Exercises
 
 ### Create New User
@@ -110,6 +134,8 @@ This assumes we have created two S3 buckets, a and b, (do not need to really und
 
 5. Login as New User; confirm can List two Buckets, but cannot see full list of Buckets nor can open a file
 
+6. Login back in as administrator and observe use of Policy using Access Advisor
+
 Properties
 
 * Name: my-policy
@@ -126,3 +152,18 @@ Properties
 
 2. Login as New User; confirm can only list a Bucket
 
+### Create Role
+
+1. Create Role *super-user* with trust relationship to same account with permission *AdministratorAccess*
+
+2. Create inline policy named *super-user* for user with: STS, Write (AssumeRole), Role ARN
+
+3. Login as user and switch roles and confirm access
+
+#### Supplemental Tasks
+
+1. Delete new user
+
+2. Delete *super-user* Role
+
+3. Delete *my-policy* Policy
