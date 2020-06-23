@@ -70,6 +70,30 @@
 
 -AWS-[Identity and access management in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
 
+> As a general rule, AWS recommends using S3 bucket policies or IAM policies for access control. S3 ACLs is a legacy access control mechanism that predates IAM. However, if you already use S3 ACLs and you find them sufficient, there is no need to change.
+
+&nbsp;
+
+> An S3 ACL is a sub-resource that’s attached to every S3 bucket and object. It defines which AWS accounts or groups are granted access and the type of access. When you create a bucket or an object, Amazon S3 creates a default ACL that grants the resource owner full control over the resource.
+
+-AWS-[IAM Policies and Bucket Policies and ACLs! Oh, My! (Controlling Access to S3 Resources)](https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/)
+
+&nbsp;
+
+> The Amazon S3 Block Public Access feature provides settings for access points, buckets, and accounts to help you manage public access to Amazon S3 resources. By default, new buckets, access points, and objects don't allow public access. However, users can modify bucket policies, access point policies, or object permissions to allow public access. S3 Block Public Access settings override these policies and permissions so that you can limit public access to these resources.
+
+### Static Website
+
+> To host a static website on Amazon S3, you configure an Amazon S3 bucket for website hosting and then upload your website content to the bucket. When you configure a bucket as a static website, you must enable website hosting, set permissions, and create and add an index document. Depending on your website requirements, you can also configure redirects, web traffic logging, and a custom error document.
+
+-AWS-[Hosting a static website on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
+
+**note:** Only supports HTTP.
+
+> Server access logging provides detailed records for the requests that are made to a bucket. Server access logs are useful for many applications. For example, access log information can be useful in security and access audits. It can also help you learn about your customer base and understand your Amazon S3 bill.
+
+-AWS-[Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html)
+
 ### Storage Classes
 
 TODO
@@ -100,6 +124,54 @@ TODO
 
 ### Create an Object
 
-1. Create an object in Bucket
+1. Create an object in Bucket, e.g., image
 
 2. Observe object ownership
+
+### Make Bucket Objects Public
+
+#### Assumptions
+
+Assume reader understands IAM
+
+#### Tasks
+
+1. Confirm that Bucket Objects are not public
+
+2. Try to use Bucket Policy to make Object public (see below); it fails
+
+3. Disable public block access
+
+4. Try to use Bucket Policy again
+
+5. Observe that can access Bucket Object (incognito window)
+
+Bucket Policy
+
+```json
+ {
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::a-example/*"]
+    }
+  ]
+}
+```
+
+### Make Bucket Static Website
+
+1. Enable static website hosting on bucket
+
+2. Create *index.html* file using image
+
+3. View in browser
+
+### Enable Bucket Server Access Logging
+
+1. Enable bucket server access logging
+
+**note**: It can take up to an hour to take effect.
