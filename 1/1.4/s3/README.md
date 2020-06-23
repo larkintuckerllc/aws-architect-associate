@@ -94,23 +94,144 @@
 
 -AWS-[Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html)
 
+### Cross-Origin Resource Sharing (CORS)
+
+> Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources.
+
+&nbsp;
+
+> To configure your bucket to allow cross-origin requests, you create a CORS configuration, which is an XML document with rules that identify the origins that you will allow to access your bucket, the operations (HTTP methods) that will support for each origin, and other operation-specific information.
+
+-AWS-[Cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html)
+
 ### Storage Classes
 
-TODO
+> S3 Standard—The default storage class. If you don't specify the storage class when you upload an object, Amazon S3 assigns the S3 Standard storage class.
+
+&nbsp;
+
+> Reduced Redundancy—The Reduced Redundancy Storage (RRS) storage class is designed for noncritical, reproducible data that can be stored with less redundancy than the S3 Standard storage class.
+
+&nbsp;
+
+> We recommend that you not use this storage class. The S3 Standard storage class is more cost effective.
+
+&nbsp;
+
+> The S3 Standard-IA and S3 One Zone-IA storage classes are designed for long-lived and infrequently accessed data. (IA stands for infrequent access.) S3 Standard-IA and S3 One Zone-IA objects are available for millisecond access (same as the S3 Standard storage class). Amazon S3 charges a retrieval fee for these objects, so they are most suitable for infrequently accessed data.
+
+&nbsp;
+
+The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects larger than 128 KB that you plan to store for at least 30 days. If an object is less than 128 KB, Amazon S3 charges you for 128 KB. If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days.
+
+&nbsp;
+
+> The S3 Intelligent-Tiering storage class stores objects in two access tiers: one tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequently accessed data. For a small monthly monitoring and automation fee per object, Amazon S3 monitors access patterns of the objects in the S3 Intelligent-Tiering storage class and moves objects that have not been accessed for 30 consecutive days to the infrequent access tier.
+
+&nbsp;
+
+> There are no retrieval fees when using the S3 Intelligent-Tiering storage class. If an object in the infrequent access tier is accessed, it is automatically moved back to the frequent access tier. No additional tiering fees apply when objects are moved between access tiers within the S3 Intelligent-Tiering storage class.
+
+&nbsp;
+
+> The S3 Glacier and S3 Glacier Deep Archive storage classes are designed for low-cost data archiving. These storage classes offer the same durability and resiliency as the S3 Standard storage class.
+
+&nbsp;
+
+> S3 Glacier—Use for archives where portions of the data might need to be retrieved in minutes. Data stored in the S3 Glacier storage class has a minimum storage duration period of 90 days and can be accessed in as little as 1-5 minutes using expedited retrieval. If you have deleted, overwritten, or transitioned to a different storage class an object before the 90-day minimum, you are charged for 90 days.
+
+&nbsp;
+
+> S3 Glacier Deep Archive—Use for archiving data that rarely needs to be accessed. Data stored in the S3 Glacier Deep Archive storage class has a minimum storage duration period of 180 days and a default retrieval time of 12 hours. If you have deleted, overwritten, or transitioned to a different storage class an object before the 180-day minimum, you are charged for 180 days.
+
+&nbsp;
+
+> However, the S3 Glacier and S3 Glacier Deep Archive objects are not available for real-time access. You must first restore the S3 Glacier and S3 Glacier Deep Archive objects before you can access them.
+
+&nbsp;
+
+> Durability: 99.999999999 (11 9s) except RRS 99.99 (4 9s)
+
+&nbsp;
+
+> Availablity: 99.99 (4 9s) except: IA and Intel. Tiering 99.9 (3 9s) IA 1-Zone (99.5)
+
+-AWS-[Amazon S3 Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+
+> The following are the available retrieval options when restoring an archived object:
+
+* Expedited (Glacier: minutes) 
+* Standard (Glacier: hours) (Deep Archive: 1 day)
+* Bulk (Glacier: day) (Deep Archive: 2 day)
+
+-AWS-[Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html)
 
 ### Versioning
 
-TODO
+> Use Amazon S3 Versioning to keep multiple versions of an object in one bucket. For example, you could store my-image.jpg (version 111111) and my-image.jpg (version 222222) in a single bucket. S3 Versioning protects you from the consequences of unintended overwrites and deletions. You can also use it to archive objects so that you have access to previous versions.
+
+&nbsp;
+
+> You must explicitly enable S3 Versioning on your bucket. By default, S3 Versioning is disabled.
+
+&nbsp;
+
+> When you DELETE an object, all versions remain in the bucket and Amazon S3 inserts a delete marker, as shown in the following figure.
+
+-AWS-[Object Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectVersioning.html)
 
 ### Encryption
 
-TODO
+> You have the following options for protecting data at rest in Amazon S3:
+
+&nbsp;
+
+> Server-Side Encryption – Request Amazon S3 to encrypt your object before saving it on disks in its data centers and then decrypt it when you download the objects.
+
+&nbsp;
+
+> Client-Side Encryption – Encrypt data client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process, the encryption keys, and related tools.
+
+-AWS-[Protecting data using encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)
+
+> Server-side encryption is the encryption of data at its destination by the application or service that receives it. Amazon S3 encrypts your data at the object level as it writes it to disks in its data centers and decrypts it for you when you access it. As long as you authenticate your request and you have access permissions, there is no difference in the way you access encrypted or unencrypted objects.
+
+&nbsp;
+
+> When you use Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3), each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a master key that it regularly rotates.
+
+&nbsp;
+
+> Server-Side Encryption with Customer Master Keys (CMKs) Stored in AWS Key Management Service (SSE-KMS) is similar to SSE-S3, but with some additional benefits and charges for using this service. There are separate permissions for the use of a CMK that provides added protection against unauthorized access of your objects in Amazon S3. SSE-KMS also provides you with an audit trail that shows when your CMK was used and by whom.
+
+&nbsp;
+
+> With Server-Side Encryption with Customer-Provided Keys (SSE-C), you manage the encryption keys and Amazon S3 manages the encryption, as it writes to disks, and decryption, when you access your objects.
+
+-AWS-[Protecting data using server-side encryption
+](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
+
+> SSE-C: When you upload an object, Amazon S3 uses the encryption key you provide to apply AES-256 encryption to your data and removes the encryption key from memory. When you retrieve an object, you must provide the same encryption key as part of your request. Amazon S3 first verifies that the encryption key you provided matches and then decrypts the object before returning the object data to you.
+
+-AWS-[Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
 
 ### Transfer Acceleration
 
 TODO
 
 ### Access Points
+
+TODO
+
+### Lifecycle Management
+
+TODO
+
+### S3 Batch Operations
+
+TODO
+
+### Replication
 
 TODO
 
@@ -175,3 +296,20 @@ Bucket Policy
 1. Enable bucket server access logging
 
 **note**: It can take up to an hour to take effect.
+
+### Set Content-Type Meta-Data on All Objects
+
+1. Set Content-Type meta-data on all Objects
+
+### Version an Object
+
+1. Enable Bucket versioning
+
+2. Upload new version of cat.jpg
+
+3. Observe multiple versions
+
+4. Delete Object
+
+5. Resore Object (delete the delete marker)
+
