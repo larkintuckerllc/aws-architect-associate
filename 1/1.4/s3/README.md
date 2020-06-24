@@ -94,6 +94,46 @@
 
 -AWS-[Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html)
 
+### Versioning
+
+> Use Amazon S3 Versioning to keep multiple versions of an object in one bucket. For example, you could store my-image.jpg (version 111111) and my-image.jpg (version 222222) in a single bucket. S3 Versioning protects you from the consequences of unintended overwrites and deletions. You can also use it to archive objects so that you have access to previous versions.
+
+&nbsp;
+
+> You must explicitly enable S3 Versioning on your bucket. By default, S3 Versioning is disabled.
+
+&nbsp;
+
+> When you DELETE an object, all versions remain in the bucket and Amazon S3 inserts a delete marker, as shown in the following figure.
+
+-AWS-[Object Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectVersioning.html)
+
+### S3 Batch Operations
+
+> You can use S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. S3 Batch Operations can execute a single operation or action on lists of Amazon S3 objects that you specify.
+
+&nbsp;
+
+> To create a job, you give S3 Batch Operations a list of objects and specify the action to perform on those objects. S3 Batch Operations support the following operations:
+
+* PUT copy object
+
+* PUT object tagging
+
+* PUT object ACL
+
+* Initiate S3 Glacier restore
+
+* Invoke an AWS Lambda function
+
+> The objects that you want a job to act on are listed in a manifest object. A job performs the specified operation on each object that is included in its manifest. You can use a CSV-formatted Amazon S3 inventory report as a manifest, which makes it easy to create large lists of objects located in a bucket.
+
+-AWS-[The basics: S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
+
+> Amazon S3 must have your permissions to perform S3 Batch Operations on your behalf. You grant these permissions through an AWS Identity and Access Management (IAM) role.
+
+-AWS-[Granting permissions for Amazon S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-iam-role-policies.html)
+
 ### Cross-Origin Resource Sharing (CORS)
 
 > Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources.
@@ -166,20 +206,6 @@ The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects l
 
 -AWS-[Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html)
 
-### Versioning
-
-> Use Amazon S3 Versioning to keep multiple versions of an object in one bucket. For example, you could store my-image.jpg (version 111111) and my-image.jpg (version 222222) in a single bucket. S3 Versioning protects you from the consequences of unintended overwrites and deletions. You can also use it to archive objects so that you have access to previous versions.
-
-&nbsp;
-
-> You must explicitly enable S3 Versioning on your bucket. By default, S3 Versioning is disabled.
-
-&nbsp;
-
-> When you DELETE an object, all versions remain in the bucket and Amazon S3 inserts a delete marker, as shown in the following figure.
-
--AWS-[Object Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectVersioning.html)
-
 ### Encryption
 
 > You have the following options for protecting data at rest in Amazon S3:
@@ -217,21 +243,93 @@ The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects l
 
 ### Transfer Acceleration
 
-TODO
+> Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront’s globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.
 
-### Access Points
-
-TODO
+-AWS-[Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
 
 ### Lifecycle Management
 
-TODO
+> To manage your objects so that they are stored cost effectively throughout their lifecycle, configure their Amazon S3 Lifecycle. An S3 Lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. There are two types of actions:
 
-### S3 Batch Operations
+&nbsp;
 
-TODO
+> Transition actions—Define when objects transition to another storage class. For example, you might choose to transition objects to the S3 Standard-IA storage class 30 days after you created them, or archive objects to the S3 Glacier storage class one year after creating them.
+
+&nbsp;
+
+> Expiration actions—Define when objects expire. Amazon S3 deletes expired objects on your behalf.
+
+-AWS-[Object lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 
 ### Replication
+
+> Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can copy objects between different AWS Regions or within the same Region.
+
+&nbsp;
+
+> Both source and destination buckets must have versioning enabled.
+
+&nbsp;
+
+> Amazon S3 must have permissions to replicate objects from the source bucket to the destination bucket on your behalf.
+
+&nbsp;
+
+> If the source bucket has S3 Object Lock enabled, the destination bucket must also have S3 Object Lock enabled.
+
+-AWS-[Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
+
+> By default Amazon S3 doesn't replicate the following:
+
+&nbsp;
+
+> Objects that existed before you added the replication configuration to the bucket.
+
+&nbsp;
+
+> Objects created with server-side encryption using customer-provided (SSE-C) encryption keys.
+
+&nbsp;
+
+> Objects created with server-side encryption using CMKs stored in AWS KMS. By default, Amazon S3 does not replicate objects encrypted using KMS CMKs. However, you can explicitly enable replication of these objects in the replication configuration, and provide relevant information so that Amazon S3 can replicate these objects.
+
+&nbsp;
+
+> Objects that are stored in S3 Glacier or S3 Glacier Deep Archive storage class.
+
+&nbsp;
+
+> Objects in the source bucket that the bucket owner doesn't have permissions for (when the bucket owner is not the owner of the object).
+
+&nbsp;
+
+> Updates to bucket-level subresources. For example, if you change the lifecycle configuration or add a notification configuration to your source bucket, these changes are not applied to the destination bucket.
+
+&nbsp;
+
+> Actions performed by lifecycle configuration.
+
+&nbsp;
+
+> If using the latest version of the replication configuration (the XML specifies Filter as the child of Rule), delete markers created either by a user action or by Amazon S3 as part of the lifecycle action are not replicated.
+
+&nbsp;
+
+> Objects in the source bucket that are replicas that were created by another replication rule.
+
+&nbsp;
+
+> To enable existing object replication for your account, you must contact AWS Support.
+
+-AWS-[What Does Amazon S3 Replicate?](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html)
+
+### Object Locking
+
+> With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely. Object Lock helps you meet regulatory requirements that require WORM storage, or simply add another layer of protection against object changes and deletion.
+
+-AWS-[Locking objects using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
+
+### Access Points
 
 TODO
 
@@ -311,5 +409,8 @@ Bucket Policy
 
 4. Delete Object
 
-5. Resore Object (delete the delete marker)
+5. Restore Object (delete the delete marker)
 
+### Create S3 Batch Operations Job
+
+TODO
