@@ -331,7 +331,9 @@ The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects l
 
 ### Access Points
 
-TODO
+> Amazon S3 Access Points simplify managing data access at scale for shared datasets in S3. Access points are named network endpoints that are attached to buckets that you can use to perform S3 object operations, such as GetObject and PutObject. Each access point has distinct permissions and network controls that S3 applies for any request that is made through that access point. Each access point enforces a customized access point policy that works in conjunction with the bucket policy that is attached to the underlying bucket. You can configure any access point to accept requests only from a virtual private cloud (VPC) to restrict Amazon S3 data access to a private network. You can also configure custom block public access settings for each access point.
+
+-AWS-[Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html)
 
 ## Exercises
 
@@ -413,4 +415,8 @@ Bucket Policy
 
 ### Create S3 Batch Operations Job
 
-TODO
+1. Create S3 Batch Operation to update a Tag
+
+#### Supplemental Tasks
+
+1. Clean up a bunch of stuff
