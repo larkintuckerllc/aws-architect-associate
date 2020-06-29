@@ -84,10 +84,40 @@ Magnetic – Amazon RDS also supports magnetic storage for backward compatibilit
 
 -AWS-[Amazon RDS DB Instance Storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html)
 
-TODO
-
-> You can run a DB instance on a virtual private cloud (VPC) using the Amazon Virtual Private Cloud (Amazon VPC) service. When you use a VPC, you have control over your virtual networking environment.
+> If your workload is unpredictable, you can enable storage autoscaling for an Amazon RDS DB instance. To do so, you can use the Amazon RDS console, the Amazon RDS API, or the AWS CLI.
 
 &nbsp;
 
+> The maximum storage threshold is the limit to which the DB instance can be autoscaled. You can't set the maximum storage threshold for autoscaling-enabled instances to a value greater than the maximum allocated storage.
+
+-AWS-[Working with Storage for Amazon RDS DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling)
+
+### VPC
+
+> Unless you are working with a legacy DB instance, your DB instance is in a virtual private cloud (VPC). A VPC is a virtual network that is logically isolated from other virtual networks in the AWS Cloud. Amazon VPC lets you launch AWS resources, such as an Amazon RDS DB instance or Amazon EC2 instance, into a VPC. The VPC can either be a default VPC that comes with your account or one that you create. All VPCs are associated with your AWS account.
+
+&nbsp;
+
+> A DB subnet group is a collection of subnets (typically private) that you create in a VPC and that you then designate for your DB instances. A DB subnet group allows you to specify a particular VPC when creating DB instances using the CLI or API; if you use the console, you can just choose the VPC and subnets you want to use.
+
+&nbsp;
+
+> Each DB subnet group should have subnets in at least two Availability Zones in a given AWS Region. When creating a DB instance in a VPC, you must choose a DB subnet group. Amazon RDS uses that DB subnet group and your preferred Availability Zone to choose a subnet and an IP address within that subnet to associate with your DB instance.
+
+-AWS-[Working with a DB Instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)
+
 ## Exercises
+
+1. Standard Create
+
+2. PostgreSQL
+
+3. Free Tier
+
+4. Password
+
+5. Disable: Autoscaling
+
+6. my-security-group (but need to allow all traffic between instances in same SG)
+
+7. Pick AZ
