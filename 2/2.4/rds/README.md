@@ -121,3 +121,15 @@ Magnetic – Amazon RDS also supports magnetic storage for backward compatibilit
 6. my-security-group (but need to allow all traffic between instances in same SG)
 
 7. Pick AZ
+
+8. Create EC2 Instance
+
+9. upgrade
+
+10. Install pgclient
+
+11. Connect to Database
+
+#### Supplemental Tasks
+
+1. Delete both EC2 and RDS instance
