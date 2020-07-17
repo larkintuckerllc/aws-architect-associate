@@ -148,6 +148,18 @@
 
 ## Exercises
 
+### Create Table
+
+1. Create Table; Name: Todos; PK: IdentityId; SK: Id
+
+2. Create Item; IdentityId: John; Id: a; Name: Apple
+
+3. Create Item; IdentityId: Suzy; Id: a; Name: Alaska
+
+4. Scan Table; observe all items
+
+5. Query Table; observe all items with PK
+
 ### TODO
 
 TODO
