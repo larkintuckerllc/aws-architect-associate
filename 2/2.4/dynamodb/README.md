@@ -204,6 +204,60 @@ Number of ancillary things like IAM.
 
 -AWS-[Point-in-Time Recovery: How It Works](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html)
 
+### Misc
+
+> Amazon DynamoDB global tables provide a fully managed solution for deploying a multiregion, multi-master database, without having to build and maintain your own replication solution. With global tables you can specify the AWS Regions where you want the table to be available. DynamoDB performs all of the necessary tasks to create identical tables in these Regions and propagate ongoing data changes to all of them.
+
+-AWS-[Global Tables: Multi-Region Replication with DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html)
+
+> With Amazon DynamoDB transactions, you can group multiple actions together and submit them as a single all-or-nothing TransactWriteItems or TransactGetItems operation.
+
+-AWS-[Amazon DynamoDB Transactions: How It Works](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html)
+
+> Amazon DynamoDB Accelerator (DAX) is designed to run within an Amazon Virtual Private Cloud (Amazon VPC) environment.
+
+&nbsp;
+
+> To create a DAX cluster, you use the AWS Management Console. Unless you specify otherwise, your DAX cluster runs within your default VPC. To run your application, you launch an Amazon EC2 instance into your Amazon VPC. You then deploy your application (with the DAX client) on the EC2 instance.
+
+&nbsp;
+
+> At runtime, the DAX client directs all of your application's DynamoDB API requests to the DAX cluster. If DAX can process one of these API requests directly, it does so. Otherwise, it passes the request through to DynamoDB.
+
+&nbsp;
+
+> If the request specifies eventually consistent reads (the default behavior), it tries to read the item from DAX:
+
+&nbsp;
+
+> With these operations, data is first written to the DynamoDB table, and then to the DAX cluster. The operation is successful only if the data is successfully written to both the table and to DAX.
+
+&nbsp;
+
+> The item cache has a Time to Live (TTL) setting, which is 5 minutes by default. DAX assigns a timestamp to every item that it writes to the item cache. An item expires if it has remained in the cache for longer than the TTL setting.
+
+&nbsp;
+
+> DAX also maintains a query cache to store the results from Query and Scan operations. The items in this cache represent result sets from queries and scans on DynamoDB tables. These result sets are stored by their parameter values.
+
+&nbsp;
+
+You can specify the TTL setting for the query cache when you create a new DAX cluster.
+
+-AWS-[In-Memory Acceleration with DynamoDB Accelerator (DAX)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html)
+
+> NoSQL Workbench for Amazon DynamoDB is a cross-platform client-side application for modern database development and operations and is available for Windows and macOS. NoSQL Workbench is a unified visual tool that provides data modeling, data visualization, and query development features to help you design, create, query, and manage DynamoDB tables.
+
+-AWS-[NoSQL Workbench for Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html)
+
+> When enabling TTL on a DynamoDB table, you must identify a specific attribute name that the service will look for when determining if an item is eligible for expiration. After you enable TTL on a table, a per-partition scanner background process automatically and continuously evaluates the expiry status of items in the table.
+
+&nbsp;
+
+> The scanner background process compares the current time, in Unix epoch time format in seconds, to the value stored in the user-defined attribute of an item.
+
+-AWS-[How It Works: DynamoDB Time to Live (TTL)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html)
+
 ## Exercises
 
 ### Create Table
