@@ -146,6 +146,64 @@
 
 -AWS-[Read/Write Capacity Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html)
 
+### On-Demand Backup
+
+> You can use the on-demand backup feature to create full backups of your Amazon DynamoDB tables.
+
+&nbsp;
+
+> When you create an on-demand backup, a time marker of the request is cataloged. The backup is created asynchronously by applying all changes until the time of the request to the last full table snapshot. Backup requests are processed instantaneously and become available for restore within minutes.
+
+&nbsp;
+
+> All backups in DynamoDB work without consuming any provisioned throughput on the table.
+
+&nbsp;
+
+> `If you don't want to create scheduling scripts and cleanup jobs, you can use AWS Backup to create backup plans with schedules and retention policies for your DynamoDB tables.
+
+&nbsp;
+
+> You restore a table without consuming any provisioned throughput on the table. You can do a full table restore from your DynamoDB backup, or you can configure the destination table settings. When you do a restore, you can change the following table settings:
+
+* Global secondary indexes (GSIs)
+
+* Local secondary indexes (LSIs)
+
+* Billing mode
+
+* Provisioned read and write capacity
+
+* Encryption settings
+
+> You can also restore your DynamoDB table data across AWS Regions such that the restored table is created in a different Region from where the backup resides.
+
+&nbsp;
+
+> You must manually set up the following on the restored table:
+
+Number of ancillary things like IAM.
+
+-AWS-[Back Up and Restore DynamoDB Tables: How It Works](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/backuprestore_HowItWorks.html)
+
+### Point-in-Time Recovery
+
+> Amazon DynamoDB point-in-time recovery (PITR) provides automatic backups of your DynamoDB table data.
+
+&nbsp;
+
+> You can enable point-in-time recovery using the AWS Management Console, AWS Command Line Interface (AWS CLI), or the DynamoDB API.
+
+&nbsp;
+
+> After you enable point-in-time recovery, you can restore to any point in time within EarliestRestorableDateTime and LatestRestorableDateTime. LatestRestorableDateTime is typically 5 minutes before the current time.
+
+&nbsp;
+
+> For EarliestRestorableDateTime, you can restore your table to any point in time during the last 35 days. The retention period is a fixed 35 days (5 calendar weeks) and can't be modified.
+
+-AWS-[Point-in-Time Recovery: How It Works](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html)
+
 ## Exercises
 
 ### Create Table
@@ -160,10 +218,6 @@
 
 5. Query Table; observe all items with PK
 
-### TODO
-
-TODO
-
 #### Supplemental Tasks
 
-TODO
+1. Delete Todos table
