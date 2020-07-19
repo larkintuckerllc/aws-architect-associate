@@ -63,3 +63,5 @@
 &nbsp;
 
 > When you run the Memcached engine, clusters can be made up of 1–20 nodes. You partition your database across the nodes. Your application reads and writes to each node's endpoint.
+
+-AWS-[ElastiCache for Memcached Components and Features](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.Components.html)
