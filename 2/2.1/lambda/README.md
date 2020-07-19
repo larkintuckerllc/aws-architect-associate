@@ -72,6 +72,96 @@
 
 -AWS-[AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)
 
+> When you invoke a function, you can choose to invoke it synchronously or asynchronously. With synchronous invocation, you wait for the function to process the event and return a response. With asynchronous invocation, Lambda queues the event for processing and returns a response immediately. For asynchronous invocation, Lambda handles retries and can send invocation records to a destination.
+
+-AWS-[Invoking AWS Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html)
+
+### Specifics
+
+> You can use environment variables to store secrets securely and adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
+
+-AWS-[Using AWS Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html)
+
+> The system creates a new version of your Lambda function each time that you publish the function.
+
+-AWS-[AWS Lambda function versions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html)
+
+> You can create one or more aliases for your AWS Lambda function. A Lambda alias is like a pointer to a specific Lambda function version.
+
+-AWS-[AWS Lambda function aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
+
+> You can configure your Lambda function to pull in additional code and content in the form of layers. A layer is a ZIP archive that contains libraries, a custom runtime, or other dependencies.
+
+&nbsp;
+
+> A function can use up to 5 layers at a time. The total unzipped size of the function and all layers can't exceed the unzipped deployment package size limit of 250 MB.
+
+&nbsp;
+
+> Your function can access the content of the layer during execution in the /opt directory. Layers are applied in the order that's specified, merging any folders with the same name. If the same file appears in multiple layers, the version in the last applied layer is used.
+
+-AWS-[AWS Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+
+> You can configure a function to connect to private subnets in a virtual private cloud (VPC) in your account. Use Amazon Virtual Private Cloud (Amazon VPC) to create a private network for resources such as databases, cache instances, or internal services. Connect your function to the VPC to access private resources during execution.
+
+-AWS-[Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html)
+
+> You can use the Lambda console to create an Amazon RDS Proxy database proxy for your function. A database proxy manages a pool of database connections and relays queries from a function. This enables a function to reach high concurrency levels without exhausting database connections.
+
+-AWS-[Configuring database access for a Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-database.html)
+
+You can configure a function to mount an Amazon Elastic File System (Amazon EFS) file system to a local directory. With Amazon EFS, your function code can access and modify shared resources safely and at high concurrency.
+
+-AWS-[Configuring file system access for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html)
+
+> An event source mapping is an AWS Lambda resource that reads from an event source and invokes a Lambda function. You can use event source mappings to process items from a stream or queue in services that don't invoke Lambda functions directly. Lambda provides event source mappings for the following services.
+
+* Amazon Kinesis
+
+* Amazon DynamoDB
+
+* Amazon Simple Queue Service
+
+> An event source mapping uses permissions in the function's execution role to read and manage items in the event source.
+
+-AWS-[AWS Lambda event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html)
+
 ## Exercises
 
-TODO
+### Create a Function
+
+1. Create function; Author from Scratch; Name: hello-lambda
+
+2. Observe Role, Policy
+
+3. Observe qualifiers ($LATEST and unqualified)
+
+4. Execute a Test; Observe Log Group (for Function) in CloudWatch Logs (and Log Stream)
+
+### Use Environment Variable
+
+1. Create environment variable; HELLO: world
+
+2. Update code to use environment variable
+
+3. Run Test
+
+### Publish a Version / Create Alias
+
+1. Publish version of hello-lambda
+
+2. Observe version (code and env. variable) is immutable; Make change to $LATEST
+
+3. Create alias to version
+
+### Create a Layer and Use
+
+1. Create folder nodejs; npm init; install *random-words* npm library
+
+2. zip folder
+
+3. create S3 bucket with zip file
+
+4. Run *aws* CLI to create layer
+
+5. Attach Lambda to layer and use
