@@ -1,5 +1,7 @@
 # Amazon ElastiCache
 
+TODO: Backups
+
 ## Concepts
 
 > Amazon ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in-memory data store or cache environment in the cloud. It provides a high-performance, scalable, and cost-effective caching solution. At the same time, it helps remove the complexity associated with deploying and managing a distributed cache environment.
@@ -56,6 +58,22 @@
 
 -AWS-[ElastiCache for Redis Components and Features](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.Components.html)
 
+> You can now use a single reader endpoint to connect to your Redis read replicas. Until today, to easily connect to your read replicas you had to manage multiple endpoints at the application level. The new feature allows you to direct all read traffic to your ElastiCache for Redis cluster through a single, cluster-level endpoint.
+
+-AWS-[Amazon ElastiCache launches reader endpoints for Redis](https://aws.amazon.com/about-aws/whats-new/2019/06/amazon-elasticache-launches-reader-endpoint-for-redis/)
+
+> In-transit encryption encrypts your data whenever it is moving from one place to another, such as between nodes in your cluster or between your cluster and your application.
+
+&nbsp;
+
+> At-rest encryption encrypts your on-disk data during sync and backup operations.
+
+&nbsp;
+
+> Optionally, you can also use AUTH and the AUTH token (password) needed to perform operations on this cluster or replication group.
+
+-AWS-[Data Security in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/encryption.html)
+
 ## MemCache
 
 > The Memcached engine supports Auto Discovery. Auto Discovery is the ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes. With Auto Discovery, your application doesn't need to manually connect to individual nodes. Instead, your application connects to a configuration endpoint.
@@ -65,3 +83,39 @@
 > When you run the Memcached engine, clusters can be made up of 1–20 nodes. You partition your database across the nodes. Your application reads and writes to each node's endpoint.
 
 -AWS-[ElastiCache for Memcached Components and Features](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.Components.html)
+
+### Backup
+
+> Amazon ElastiCache clusters running Redis can back up their data. You can use the backup to restore a cluster or seed a new cluster. The backup consists of the cluster's metadata, along with all of the data in the cluster. All backups are written to Amazon Simple Storage Service (Amazon S3), which provides durable storage. At any time, you can restore your data by creating a new Redis cluster and populating it with data from a backup.
+
+&nbsp;
+
+> Backup window – A period during each day when ElastiCache begins creating a backup. The minimum length for the backup window is 60 minutes
+
+&nbsp;
+
+> The maximum backup retention limit is 35 days. If the backup retention limit is set to 0, automatic backups are disabled for the cluster.
+
+-AWS-[Scheduling Automatic Backups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html)
+
+### Caching Strategies
+
+TODO
+
+## Exercises
+
+### Create Redis (Not Cluster-Mode)
+
+1. Create Redis; Name: hello-redis
+
+2. Create EC2 in same security group
+
+3. Install Redis CLI
+
+4. Connect to Redis primary endpoint and interact
+
+#### Supplemental Tasks
+
+1. Delete EC2 Instance
+
+2. Delete Redis Cluster
