@@ -182,7 +182,7 @@ Properties
 
 3. Login to EC2 Instance and run *aws s3 ls*
 
-#### Supplemental Tasks
+#### Suplemental Tasks
 
 1. Delete EC2 Instance
 

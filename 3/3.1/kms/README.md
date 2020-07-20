@@ -87,3 +87,7 @@
 2. Use AWS CLI to encrypt string (have to base64 first)
 
 3. Use AWS CLI to decrypt string
+
+#### Suplemental Tasks
+
+1. Schedule Key deletion in 7 days
