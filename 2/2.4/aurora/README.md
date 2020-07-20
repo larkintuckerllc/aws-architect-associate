@@ -62,4 +62,6 @@ Amazon Aurora typically involves a cluster of DB instances instead of a single i
 
 ## Exercises
 
-TODO
+### Create Aurora Database
+
+TODO (straightforward)
