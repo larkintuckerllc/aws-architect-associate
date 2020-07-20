@@ -1,7 +1,9 @@
 # 2.4 Choose high-performing database solutions for a workload
 
-* [Amazon Relational Database Service (RDS)](rds)
+* [Amazon Aurora](aurora)
 
 * [Amazon DynamoDB](dynamodb)
 
 * [Amazon ElastiCache](elasticache)
+
+* [Amazon Relational Database Service (RDS)](rds)
