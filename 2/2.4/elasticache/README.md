@@ -100,7 +100,27 @@ TODO: Backups
 
 ### Caching Strategies
 
-TODO
+> Lazy Loading: Amazon ElastiCache is an in-memory key-value store that sits between your application and the data store (database) that it accesses. Whenever your application requests data, it first makes the request to the ElastiCache cache. If the data exists in the cache and is current, ElastiCache returns the data to your application. If the data doesn't exist in the cache or has expired, your application requests the data from your data store. Your data store then returns the data to your application. Your application next writes the data received from the store to the cache. This way, it can be more quickly retrieved the next time it's requested.
+
+&nbsp;
+
+> The disadvantages of lazy loading are as follows:
+
+- There is a cache miss penalty.
+
+- Stale data
+
+> Write-Through: The write-through strategy adds data or updates data in the cache whenever data is written to the database.
+
+&nbsp;
+
+> The disadvantages of write-through are as follows:
+
+- Missing data: If you spin up a new node, whether due to a node failure or scaling out, there is missing data. This data continues to be missing until it's added or updated on the database. You can minimize this by implementing lazy loading with write-through.
+
+- Cache churn: Most data is never read, which is a waste of resources. By adding a time to live (TTL) value, you can minimize wasted space.
+
+-AWS-[Caching Strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html)
 
 ## Exercises
 
