@@ -61,3 +61,29 @@
 > When you enable automatic key rotation for a customer managed CMK, AWS KMS generates new cryptographic material for the CMK every year. AWS KMS also saves the CMK's older cryptographic material in perpetuity so it can be used to decrypt data that it encrypted. AWS KMS does not delete any rotated key material until you delete the CMK.
 
 -AWS-[Rotating customer master keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
+
+> Much of the power of aliases come from your ability to change the CMK associated with an alias at any time. Aliases can make your code easier to write and maintain. For example, suppose you use an alias to refer to a particular CMK and you want to change the CMK. In that case, just associate the alias with a different CMK. You don't need to change your code.
+
+-AWS-[Using aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html)
+
+> The default key policy gives the AWS account (root user) that owns the CMK full access to the CMK, which accomplishes the following two things.
+
+&nbsp;
+
+> The default key policy created by the console allows you to choose IAM users and roles in the account and make them key administrators. Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
+
+&nbsp;
+
+> The default key policy that the console creates for symmetric CMKs allows you to choose IAM users and roles in the account, and external AWS accounts, and make them key users.
+
+-AWS-[Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
+
+## Exercises
+
+### Create and Use Symetric Key
+
+1. Create Symeteric Key with alias
+
+2. Use AWS CLI to encrypt string (have to base64 first)
+
+3. Use AWS CLI to decrypt string
