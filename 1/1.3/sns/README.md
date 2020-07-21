@@ -42,4 +42,20 @@
 
 -AWS-[Amazon SNS message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html)
 
+> Choose Identical payload for all delivery protocols and then enter the message, for example:
+
+&nbsp;
+
+> Choose Custom payload for each delivery protocol and then use a JSON object to define the message to send to each protocol,
+
+-AWS-[Tutorial: Publishing a message to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-publish-message-to-topic.html)
+
 ## Exercises
+
+### Create and Publish to Topic
+
+1. Create Topic
+
+2. Create email Subscription to Topic; confirm
+
+3. Publish message to Topic
