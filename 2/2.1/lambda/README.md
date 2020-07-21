@@ -126,6 +126,32 @@ You can configure a function to mount an Amazon Elastic File System (Amazon EFS)
 
 -AWS-[AWS Lambda event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html)
 
+> Memory– The amount of memory available to the function during execution. Choose an amount between 128 MB and 3,008 MB in 64-MB increments.
+
+&nbsp;
+
+> Lambda allocates CPU power linearly in proportion to the amount of memory configured. At 1,792 MB, a function has the equivalent of one full vCPU (one vCPU-second of credits per second).
+
+-AWS-[Configuring functions in the AWS Lambda console](https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html)
+
+### Concurrency
+
+> Reserving concurrency has the following effects.
+
+&nbsp;
+
+> Other functions can't prevent your function from scaling – All of your account's functions in the same Region without reserved concurrency share the pool of unreserved concurrency. Without reserved concurrency, other functions can use up all of the available concurrency. This prevents your function from scaling up when needed.
+
+&nbsp;
+
+> Your function can't scale out of control – Reserved concurrency also limits your function from using concurrency from the unreserved pool, which caps its maximum concurrency. You can reserve concurrency to prevent your function from using all the available concurrency in the Region, or from overloading downstream resources.
+
+&nbsp;
+
+> To enable your function to scale without fluctuations in latency, use provisioned concurrency. By allocating provisioned concurrency before an increase in invocations, you can ensure that all requests are served by initialized instances with very low latency. You can configure provisioned concurrency on a version of a function, or on an alias.
+
+-AWS-[Managing concurrency for a Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html#configuration-concurrency-provisioned)
+
 ## Exercises
 
 ### Create a Function
