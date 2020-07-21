@@ -70,6 +70,18 @@
 
 -AWS-[Restricting the Geographic Distribution of Your Content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html)
 
+> An HTTP 502 status code (Bad Gateway) indicates that CloudFront wasn't able to serve the requested object because it couldn't connect to the origin server.
+
+&nbsp;
+
+> An HTTP 503 status code (Service Unavailable) typically indicates a performance issue on the origin server. In rare cases, it indicates that CloudFront temporarily can’t satisfy a request because of resource constraints at an edge location.
+
+&nbsp;
+
+> CloudFront will return an HTTP 504 status code if traffic is blocked to the origin by a firewall or security group, or if the origin isn’t accessible on the internet.
+
+-AWS-[Troubleshooting Error Responses from Your Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html)
+
 ## Exercises
 
 ### Create Basic Distribution

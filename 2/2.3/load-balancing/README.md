@@ -32,6 +32,22 @@
 
 -AWS-[What Is a Classic Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html)
 
+> Application Load Balancers and Classic Load Balancers add X-Forwarded-For, X-Forwarded-Proto, and X-Forwarded-Port headers to the request.
+
+-AWS-[How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html)
+
+> The nodes for your load balancer distribute requests from clients to registered targets. When cross-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones. When cross-zone load balancing is disabled, each load balancer node distributes traffic only across the registered targets in its Availability Zone.
+
+&nbsp;
+
+> With Application Load Balancers, cross-zone load balancing is always enabled.
+
+-AWS-[How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html)
+
+> Amazon ELB is able to handle the vast majority of use cases for our customers without requiring "pre-warming" (configuring the load balancer to have the appropriate level of capacity based on expected traffic). In certain scenarios, such as when flash traffic is expected, or in the case where a load test cannot be configured to gradually increase traffic, we recommend that you contact us to have your load balancer "pre-warmed". We will then configure the load balancer to have the appropriate level of capacity based on the traffic that you expect. We will need to know the start and end dates of your tests or expected flash traffic, the expected request rate per second and the total size of the typical request/response that you will be testing.
+
+-AWS-[White Paper](https://aws.amazon.com/elasticloadbalancing/resources/)
+
 ### Application Load Balancer
 
 > A load balancer serves as the single point of contact for clients. The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This increases the availability of your application. You add one or more listeners to your load balancer.
@@ -47,6 +63,36 @@
 ![Application Load Balancer](component_architecture.png)
 
 -AWS-[What Is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+
+### Misc
+
+> HTTP 503: Service unavailable: The target groups for the load balancer have no registered targets.
+
+&nbsp;
+
+> HTTP 504: Gateway timeout: The load balancer failed to establish a connection to the target before the connection timeout expired (10 seconds). etc...
+
+-AWS-[Troubleshoot your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html)
+
+> Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers and your back-end instances. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time-series data, known as metrics. 
+
+* BackendConnectionErrors
+
+* HealthyHostCount
+
+* HTTPCode_Backend_2XX, HTTPCode_Backend_3XX, HTTPCode_Backend_4XX, HTTPCode_Backend_5XX
+
+* Latency
+
+* RequestCount
+
+* SpilloverCount
+
+* SurgeQueueLength
+
+* UnHealthyHostCount
+
+-AWS-[CloudWatch metrics for your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html)
 
 ## Exercises
 

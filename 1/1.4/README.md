@@ -5,3 +5,5 @@
 * [Amazon Elastic File System (EFS)](efs)
 
 * [Amazon Simple Storage System (S3)](s3)
+
+* [AWS Snow Family](snow)
