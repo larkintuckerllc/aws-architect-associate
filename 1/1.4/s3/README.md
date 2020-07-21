@@ -60,6 +60,14 @@
 
 -AWS-[Data protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html)
 
+> Uploading objects—You can upload objects of up to 5 GB in size in a single operation. For objects greater than 5 GB you must use the multipart upload API.
+
+&nbsp;
+
+> Using the multipart upload API you can upload objects up to 5 TB each. For more information, see Uploading objects using multipart upload API.
+
+-AWS-[Operations on objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
+
 ### Permissions
 
 > By default, all Amazon S3 resources—buckets, objects, and related subresources (for example, lifecycle configuration and website configuration)—are private: only the resource owner, an AWS account that created it, can access the resource. The resource owner can optionally grant access permissions to others by writing an access policy.
@@ -81,6 +89,16 @@
 &nbsp;
 
 > The Amazon S3 Block Public Access feature provides settings for access points, buckets, and accounts to help you manage public access to Amazon S3 resources. By default, new buckets, access points, and objects don't allow public access. However, users can modify bucket policies, access point policies, or object permissions to allow public access. S3 Block Public Access settings override these policies and permissions so that you can limit public access to these resources.
+
+&nbsp;
+
+> All objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a presigned URL, using their own security credentials, to grant time-limited permission to download the objects.
+
+&nbsp;
+
+> When you create a presigned URL for your object, you must provide your security credentials, specify a bucket name, an object key, specify the HTTP method (GET to download the object) and expiration date and time. The presigned URLs are valid only for the specified duration.
+
+-AWS-[Share an object with others](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html)
 
 ### Static Website
 
@@ -162,7 +180,7 @@
 
 &nbsp;
 
-The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects larger than 128 KB that you plan to store for at least 30 days. If an object is less than 128 KB, Amazon S3 charges you for 128 KB. If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days.
+> The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects larger than 128 KB that you plan to store for at least 30 days. If an object is less than 128 KB, Amazon S3 charges you for 128 KB. If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days.
 
 &nbsp;
 
@@ -240,6 +258,10 @@ The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects l
 > SSE-C: When you upload an object, Amazon S3 uses the encryption key you provide to apply AES-256 encryption to your data and removes the encryption key from memory. When you retrieve an object, you must provide the same encryption key as part of your request. Amazon S3 first verifies that the encryption key you provided matches and then decrypts the object before returning the object data to you.
 
 -AWS-[Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
+
+> If you need server-side encryption for all of the objects that are stored in a bucket, use a bucket policy. For example, the following bucket policy denies permissions to upload an object unless the request includes the x-amz-server-side-encryption header to request server-side encryption:
+
+-AWS-[Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)
 
 ### Transfer Acceleration
 
@@ -334,6 +356,42 @@ The S3 Standard-IA and S3 One Zone-IA storage classes are suitable for objects l
 > Amazon S3 Access Points simplify managing data access at scale for shared datasets in S3. Access points are named network endpoints that are attached to buckets that you can use to perform S3 object operations, such as GetObject and PutObject. Each access point has distinct permissions and network controls that S3 applies for any request that is made through that access point. Each access point enforces a customized access point policy that works in conjunction with the bucket policy that is attached to the underlying bucket. You can configure any access point to accept requests only from a virtual private cloud (VPC) to restrict Amazon S3 data access to a private network. You can also configure custom block public access settings for each access point.
 
 -AWS-[Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html)
+
+### Pricing
+
+> You pay for storing objects in your S3 buckets.
+
+&nbsp;
+
+> You pay for requests made against your S3 buckets and objects.
+
+&nbsp;
+
+> You pay for retrieving objects that are stored in S3 Standard – Infrequent Access, S3 One Zone – Infrequent Access, S3 Glacier, and S3 Glacier Deep Archive storage.
+
+&nbsp;
+
+> You pay for all bandwidth into and out of Amazon S3, except for the following:
+
+* Data transferred in from the internet.
+
+* Data transferred out to an Amazon Elastic Compute Cloud (Amazon EC2) instance, when the instance is in the same AWS Region as the S3 bucket.
+
+* Data transferred out to Amazon CloudFront (CloudFront).
+
+> You pay for the storage management features (Amazon S3 inventory, analytics, and object tagging) that are enabled on your account’s buckets.
+
+-AWS-[Amazon S3 pricing](https://aws.amazon.com/s3/pricing/)
+
+### Queries
+
+> With the select type of POST Object restore, you can perform filtering operations using simple Structured Query Language (SQL) statements directly on your data that is archived by Amazon S3 to S3 Glacier. When you provide an SQL query for an archived object, select runs the query in place and writes the output results to an S3 bucket. You can run queries and custom analytics on your data that is stored in S3 Glacier, without having to restore your entire object to Amazon S3.
+
+-AWS-[Querying Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html)
+
+> Amazon S3 inventory is one of the tools Amazon S3 provides to help manage your storage. You can use it to audit and report on the replication and encryption status of your objects for business, compliance, and regulatory needs. You can also simplify and speed up business workflows and big data jobs using Amazon S3 inventory, which provides a scheduled alternative to the Amazon S3 synchronous List API operation.
+
+-AWS-[Amazon S3 inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
 
 ## Exercises
 
