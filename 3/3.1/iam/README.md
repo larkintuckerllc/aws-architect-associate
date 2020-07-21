@@ -108,6 +108,22 @@
 
 -AWS-[Creating Your First IAM Delegated User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html)
 
+### Federation
+
+> Your users might already have identities outside of AWS, such as in your corporate directory. If those users need to work with AWS resources (or work with applications that access those resources), then those users also need AWS security credentials. You can use an IAM role to specify permissions for users whose identity is federated from your organization or a third-party identity provider (IdP).
+
+![Federation](federated.png)
+
+* Federating Users of a Mobile or Web-based App with Amazon Cognito
+
+* Federating Users with Public Identity Service Providers or OpenID Connect
+
+* Federating users with SAML 2.0
+
+* Federating users by creating a custom identity broker application
+
+-AWS-[Providing Access to Externally Authenticated Users (Identity Federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html)
+
 ## Exercises
 
 ### Create New User
