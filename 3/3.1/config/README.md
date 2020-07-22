@@ -80,6 +80,10 @@ AWS Config tracks changes in the configuration of your AWS resources, and it reg
 
 -AWS-[Remediating Noncompliant AWS Resources by AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/remediation.html)
 
+> A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a Region or across an organization in AWS Organizations.
+
+-AWS-[Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html)
+
 ## Exercises
 
 ### Basic
