@@ -2,4 +2,4 @@
 
 * [AWS Identit Access Management (IAM)](iam)
 
-* [AWS Key Management Service (KMS)](kms)
+* [AWS Config](config)
