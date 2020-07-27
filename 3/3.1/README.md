@@ -7,3 +7,5 @@
 * [AWS CloudTrail](cloudtrail)
 
 * [AWS Organizations](organizations)
+
+* [AWS Control Tower](control-tower)
