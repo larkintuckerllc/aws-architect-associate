@@ -126,6 +126,10 @@
 
 ## Exercises
 
+### Secure Account
+
+Check boxes, e.g., MFA
+
 ### Create New User
 
 1. Create User with no permissions
