@@ -240,7 +240,22 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 > Another strategy is to launch Spot Instances with a specified duration (also known as Spot blocks), which are designed not to be interrupted and will run continuously for the duration you select. In rare situations, Spot blocks may be interrupted due to Amazon EC2 capacity needs. In these cases, we provide a two-minute warning before we terminate an instance, and you are not charged for the terminated instances even if you used them.
 
+### Hiberation
+
+> When you hibernate an instance, we signal the operating system to perform hibernation (suspend-to-disk). Hibernation saves the contents from the instance memory (RAM) to your Amazon EBS root volume. We persist the instance's Amazon EBS root volume and any attached Amazon EBS data volumes.
+
 &nbsp;
+
+> You can hibernate an instance only if it's enabled for hibernation and it meets the hibernation prerequisites.
+
+&nbsp;
+
+> Instance RAM size - must be less than 150 GB.
+
+&nbsp;
+&nbsp;
+
+> To use hibernation, the root volume must be encrypted to ensure the protection of sensitive content that is in memory at the time of hibernation.
 
 ## Exercises
 
