@@ -24,6 +24,8 @@
 
 -AWS-[Getting started with Amazon EC2 Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
 
+**note:** A Cloud Guru: Stateful FW with only ALLOW, Default SG, block all inbound. Wizard created opens up port 22 to world inbound. Default is open outbound. Many to many relationship to resources.
+
 ### Pricing
 
 > On-Demand: With On-Demand instances, you pay for compute capacity by the hour or the second depending on which instances you run.
@@ -31,6 +33,8 @@
 &nbsp;
 
 > Spot-Instance: Amazon EC2 Spot instances allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price
+
+**note**: A Cloud Guru - Charged for hour if you terminate.
 
 &nbsp;
 
@@ -78,11 +82,13 @@
 
 > When you launch an instance, the root device volume contains the image used to boot the instance. When we introduced Amazon EC2, all AMIs were backed by Amazon EC2 instance store, which means the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3. After we introduced Amazon EBS, we introduced AMIs that are backed by Amazon EBS. This means that the root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
 
-&nbsp;
+**note:** A Cloud Guru: EBS must be in same AZ
 
 > You can choose between AMIs backed by Amazon EC2 instance store and AMIs backed by Amazon EBS. We recommend that you use AMIs backed by Amazon EBS, because they launch faster and use persistent storage.
 
 -AWS-[Amazon EC2 root device volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html)
+
+**note:** A Cloud Guru: Instance store backed EC2 cannot be stopped; so if underlying HW fails, you are screwed (ephemeral).
 
 ### Monitoring
 
@@ -164,6 +170,8 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 -AWS-[Copying an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html)
 
+**note:** Cannot share encrypted snapshots with other accounts.
+
 ### Service Quota
 
 > Amazon EC2 provides different resources that you can use. These resources include images, instances, volumes, and snapshots. When you create your AWS account, we set default quotas (also referred to as limits) on these resources on a per-Region basis. For example, there is a limit on the number of instances that you can launch in a Region. Therefore, when you launch an instance in the US West (Oregon) Region, the request must not cause your usage to exceed your current instance limit in that Region.
@@ -193,6 +201,46 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 * Spread – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
 
 -AWS-[Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
+
+### Network Interfaces
+
+> Every instance in a VPC has a default network interface, called the primary network interface. You cannot detach a primary network interface from an instance. You can create and attach additional network interfaces.
+
+&nbsp;
+
+> You can create a management network using network interfaces. In this scenario, the primary network interface (eth0) on the instance handles public traffic and the secondary network interface (eth1) handles backend management traffic and is connected to a separate subnet in your VPC that has more restrictive access controls.
+
+-AWS-[Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html)
+
+> A requester-managed network interface is a network interface that an AWS service creates in your VPC. This network interface can represent an instance for another service, such as an Amazon RDS instance, or it can enable you to access another service or resource, such as an AWS PrivateLink service, or an Amazon ECS task.
+
+-AWS-[Requester-managed network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/requester-managed-eni.html)
+
+> Depending on your instance type, enhanced networking can be enabled using one of the following mechanisms:
+
+* The Elastic Network Adapter (ENA) supports network speeds of up to 100 Gbps for supported instance types.
+
+* The Intel 82599 Virtual Function interface supports network speeds of up to 10 Gbps for supported instance types.
+
+-AWS-[Enhanced networking on Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html)
+
+> An Elastic Fabric Adapter (EFA) is a network device that you can attach to your Amazon EC2 instance to accelerate High Performance Computing (HPC) and machine learning applications.
+
+-AWS-[Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
+
+### Spot Instances
+
+> Spot Instance request – Requests a Spot Instance. The request provides the maximum price per hour that you are willing to pay for a Spot Instance. If you don't specify a maximum price, the default maximum price is the On-Demand price. When the maximum price per hour for your request exceeds the Spot price, Amazon EC2 fulfills your request if capacity is available. A Spot Instance request is either one-time or persistent. Amazon EC2 automatically resubmits a persistent Spot Instance request after the Spot Instance associated with the request is terminated. Your Spot Instance request can optionally specify a duration for the Spot Instances.
+
+&nbsp;
+
+> Spot Fleet – A set of Spot Instances that is launched based on criteria that you specify. The Spot Fleet selects the Spot Instance pools that meet your needs and launches Spot Instances to meet the target capacity for the fleet. By default, Spot Fleets are set to maintain target capacity by launching replacement instances after Spot Instances in the fleet are terminated. You can submit a Spot Fleet as a one-time request, which does not persist after the instances have been terminated. You can include On-Demand Instance requests in a Spot Fleet request.
+
+&nbsp;
+
+> Another strategy is to launch Spot Instances with a specified duration (also known as Spot blocks), which are designed not to be interrupted and will run continuously for the duration you select. In rare situations, Spot blocks may be interrupted due to Amazon EC2 capacity needs. In these cases, we provide a two-minute warning before we terminate an instance, and you are not charged for the terminated instances even if you used them.
+
+&nbsp;
 
 ## Exercises
 
