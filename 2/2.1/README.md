@@ -11,3 +11,5 @@
 * Amazon Elastic Kubernetes Service (EKS): Amazon EKS is a managed service that makes it easy for you to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
 
 * Amazon Elastic MapReduce (EMR): Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data.
+
+**note**: A Cloud Guru: Master, Core (task and data), Task nodes (optional task only). Log on Master (can be configured at start to replicate to S3)
