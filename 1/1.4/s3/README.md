@@ -429,6 +429,20 @@
 
 -AWS-[Amazon S3 inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
 
+### Event Notification
+
+When you configure event notifications for a bucket, you also choose the notification destination. Event notification messages can be sent to the following destinations:
+
+Amazon Simple Notification Service (Amazon SNS) topic – Coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. For information about the Amazon SNS topic format, see SNS FAQ.
+
+Amazon Simple Queue Service (Amazon SQS) queue – Offers reliable and scalable hosted queues for storing messages as they travel between computers. For information about Amazon SQS, see What is Amazon Simple Queue Service? in the Amazon Simple Queue Service Developer Guide.
+
+AWS Lambda – Invoke a Lambda function and provide the event message as an argument. When you create a Lambda function, you package up and upload your custom code to AWS Lambda. AWS Lambda uses the AWS infrastructure to run the code on your behalf. For information about using Lambda with Amazon S3, see Using AWS Lambda with Amazon S3 in the AWS Lambda Developer Guide.
+
+Amazon S3 event notifications are designed to be delivered at least once. Typically, event notifications are delivered in seconds but can sometimes take a minute or longer.
+
+If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent. If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket. With versioning, every successful write will create a new version of your object and will also send an event notification.
+
 ## Exercises
 
 ### Create a Bucket

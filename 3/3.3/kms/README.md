@@ -8,7 +8,7 @@
 
 > AWS KMS supports symmetric and asymmetric CMKs. A symmetric CMK represents a 256-bit key that is used for encryption and decryption. An asymmetric CMK represents an RSA key pair that is used for encryption and decryption or signing and verification (but not both), or an elliptic curve (ECC) key pair that is used for signing and verification. 
 
-&nbsp;
+**note:** A Cloud Guru; up to 4 KB of data.
 
 > CMKs are created in AWS KMS. Symmetric CMKs and the private keys of asymmetric CMKs never leave AWS KMS unencrypted. To manage your CMK, you can use the AWS Management Console or the AWS KMS API. To use a CMK in cryptographic operations, you must use the AWS KMS API. This strategy differs from data keys. AWS KMS does not store, manage, or track your data keys. You must use them outside of AWS KMS.
 
@@ -77,6 +77,10 @@
 > The default key policy that the console creates for symmetric CMKs allows you to choose IAM users and roles in the account, and external AWS accounts, and make them key users.
 
 -AWS-[Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
+
+**note:** A Cloud Guru; encrypted data includes reference to key that encrpted it (so do not need to supply on decrypt).
+
+**note:** CMD generate-data-key
 
 ## Exercises
 

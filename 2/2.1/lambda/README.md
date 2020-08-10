@@ -152,6 +152,8 @@ You can configure a function to mount an Amazon Elastic File System (Amazon EFS)
 
 -AWS-[Managing concurrency for a Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html#configuration-concurrency-provisioned)
 
+**note:** A Cloud Guru. If fails to execute, can save message in dead letter queue.
+
 ## Exercises
 
 ### Create a Function

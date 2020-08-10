@@ -100,6 +100,14 @@
 
 -AWS-[Launch Templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html)
 
+### Network Load Balancer
+
+> Source IP preservation: If you specify targets using an instance ID, the source IP addresses of the clients are preserved and provided to your applications.
+
+### Application Load Balancer
+
+Can use WAF.
+
 ## Exercises
 
 ### Create Target Group

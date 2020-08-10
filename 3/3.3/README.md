@@ -47,3 +47,7 @@ Use Distributor to create and deploy packages to managed instances.
 * Amazon CloudWatch: Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are variables you can measure for your resources and applications.
 
 * AWS Inspector: Amazon Inspector tests the network accessibility of your Amazon EC2 instances and the security state of your applications that run on those instances. Amazon Inspector assesses applications for exposure, vulnerabilities, and deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed list of security findings that is organized by level of severity.
+
+> AWS CloudHSM provides hardware security modules in the AWS Cloud. A hardware security module (HSM) is a computing device that processes cryptographic operations and provides secure storage for cryptographic keys.
+
+**note:**: FIPS 140-3; single tenant multi-az (you have to enable). You supply the key and it runs in a VPC. No AWS API; you use third-party solution. It runs in its own VPC and exposes ENI (like PrivateLink) into your VPC.
