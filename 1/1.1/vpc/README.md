@@ -22,6 +22,12 @@
 
 -AWS-[VPC Flow logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
 
+**note:** A Cloud Guru, can be captured at VPC, Subnet, or ENI
+
+**note:** Can filter by Rejected, Accepted, or All traffic
+
+**note:** Not all traffic is logged, e.g., DNS to AWS not, Windows activation, or MetaData API, DHCP
+
 ![Direct Connect](direct_connect_overview.png)
 
 -AWS-[What is AWS Direct Connect?](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
@@ -37,6 +43,10 @@
 > There are two types of VPC endpoints: interface endpoints and gateway endpoints. Create the type of VPC endpoint required by the supported service.
 
 -AWS-[VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html)
+
+> A bastion host is a special-purpose computer on a network specifically designed and configured to withstand attacks. The computer generally hosts a single application, for example a proxy server, and all other services are removed or limited to reduce the threat to the computer. It is hardened in this manner primarily due to its location and purpose, which is either on the outside of a firewall or in a demilitarized zone (DMZ) and usually involves access from untrusted networks or computers.
+
+-Wikipedia
 
 ## Exercises
 
