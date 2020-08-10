@@ -56,6 +56,14 @@
 
 -Wikipedia
 
+**note:** A Cloud Guru.  Two options for HA Bastion
+
+![BA 1](ba-1.png)
+
+![BA 2](ba-2.png)
+
+Option 2 requires script to take over the EIP address.
+
 > AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local and global users. Global Accelerator directs traffic to optimal endpoints over the AWS global network. This improves the availability and performance of your internet applications that are used by a global audience. Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the AWS Region Table.
 
 &nbsp;

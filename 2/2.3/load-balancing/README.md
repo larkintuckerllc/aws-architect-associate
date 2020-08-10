@@ -100,14 +100,6 @@
 
 -AWS-[Launch Templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html)
 
-**note:** A Cloud Guru.  Two options for HA Bastion
-
-![BA 1](ba-1.png)
-
-![BA 2](ba-2.png)
-
-Option 2 requires script to take over the EIP address.
-
 ## Exercises
 
 ### Create Target Group
