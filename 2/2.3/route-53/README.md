@@ -20,7 +20,7 @@ It is important to know the various DNS record types; described in [Amazon Route
 
 > Failover routing policy – Use when you want to configure active-passive failover.
 
-&nbsp;
+**note:** Uses health check. A Cloud Guru.
 
 > Geolocation routing policy – Use when you want to route traffic based on the location of your users.
 
@@ -36,7 +36,7 @@ It is important to know the various DNS record types; described in [Amazon Route
 
 > Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
 
-&nbsp;
+**note:** Uses health check. A Cloud Guru.
 
 > Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
 
@@ -49,6 +49,8 @@ It is important to know the various DNS record types; described in [Amazon Route
 > When you use an alias record to route traffic to an AWS resource, Route 53 automatically recognizes changes in the resource. For example, suppose an alias record for example.com points to an ELB load balancer at lb1-1234.us-east-2.elb.amazonaws.com. If the IP address of the load balancer changes, Route 53 automatically starts to respond to DNS queries using the new IP address.
 
 -AWS-[Choosing between alias and non-alias records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+
+**note:** A Cloud Guru, AWS DNS supports health checks when using a routing policy; can send SNS if failure.
 
 ### Sidebar into Certificate Manager
 
