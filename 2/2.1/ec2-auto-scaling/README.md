@@ -42,6 +42,18 @@
 
 -AWS-[Step and Simple Scaling Policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
 
+**note:** A Cloud Guru; Options
+
+* Maintain level
+
+* Scale Manually
+
+* Scale on Schedule
+
+* Scale on Demand
+
+* Predictive Scaling (new)
+
 ## Exercises
 
 ### Create Launch Template

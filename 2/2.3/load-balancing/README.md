@@ -94,6 +94,20 @@
 
 -AWS-[CloudWatch metrics for your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html)
 
+**note:** A Cloud Guru, Application LB can route based on hostname, paths.
+
+> A launch template is similar to a launch configuration, in that it specifies instance configuration information. Included are the ID of the Amazon Machine Image (AMI), the instance type, a key pair, security groups, and the other parameters that you use to launch EC2 instances. However, defining a launch template instead of a launch configuration allows you to have multiple versions of a template. 
+
+-AWS-[Launch Templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html)
+
+**note:** A Cloud Guru.  Two options for HA Bastion
+
+![BA 1](ba-1.png)
+
+![BA 2](ba-2.png)
+
+Option 2 requires script to take over the EIP address.
+
 ## Exercises
 
 ### Create Target Group
