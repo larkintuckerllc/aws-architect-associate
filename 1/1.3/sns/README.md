@@ -14,10 +14,6 @@
 
 &nbsp;
 
-> Application and system alerts are notifications that are triggered by predefined thresholds and sent to specified users by SMS and/or email.
-
-&nbsp;
-
 > Mobile push notifications enable you to send messages directly to mobile apps.
 
 &nbsp;
