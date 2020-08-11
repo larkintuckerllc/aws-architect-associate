@@ -6,6 +6,8 @@
 
 * [Domain 3: Design Secure Applications and Architectures](3)
 
+* [Domain 4: Design Cost-Optimized Architectures](4)
+
 * AWS Well-Architected (CORPS)
 
 Cost Optimization
