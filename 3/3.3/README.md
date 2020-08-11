@@ -18,6 +18,8 @@ AppConfig helps you create, manage, and quickly deploy application configuration
 
 *Parameter Store provides secure, hierarchical storage for configuration data and secrets management.*
 
+**note:** A Cloud Guru; versioned (rollback); TTL; up to 15 levels deep; access can be granted using hiearchical; can reference in CloudFormation. No cost. Up to 10K.
+
 Use Systems Manager Automation to automate common maintenance and deployment tasks.
 
 Change Calendar lets you set up date and time ranges when actions you specify (for example, in Systems Manager Automation documents) may or may not be performed in your AWS account.
@@ -50,4 +52,12 @@ Use Distributor to create and deploy packages to managed instances.
 
 > AWS CloudHSM provides hardware security modules in the AWS Cloud. A hardware security module (HSM) is a computing device that processes cryptographic operations and provides secure storage for cryptographic keys.
 
-**note:**: FIPS 140-3; single tenant multi-az (you have to enable). You supply the key and it runs in a VPC. No AWS API; you use third-party solution. It runs in its own VPC and exposes ENI (like PrivateLink) into your VPC.
+**note:**: A Cloud Guru. FIPS 140-3; single tenant multi-az (you have to enable). You supply the key and it runs in a VPC. No AWS API; you use third-party solution. It runs in its own VPC and exposes ENI (like PrivateLink) into your VPC.
+
+> Secrets Manager enables you to replace hardcoded credentials in your code, including passwords, with an API call to Secrets Manager to retrieve the secret programmatically. This helps ensure the secret can't be compromised by someone examining your code, because the secret no longer exists in the code. Also, you can configure Secrets Manager to automatically rotate the secret for you according to a specified schedule. This enables you to replace long-term secrets with short-term ones, significantly reducing the risk of compromise.
+
+**note:** A Cloud Guru. Cost. Full secrets rotation integration with RDS. Can use Lambda trigger on a key rotation. Can generate random secrets. Can be shared across accounts. 
+
+> AWS provides AWS Shield Standard and AWS Shield Advanced for protection against DDoS attacks. AWS Shield Standard is automatically included at no extra cost beyond what you already pay for AWS WAF and your other AWS services. For added protection against DDoS attacks, AWS offers AWS Shield Advanced. AWS Shield Advanced provides expanded DDoS attack protection for your Amazon Elastic Compute Cloud instances, Elastic Load Balancing load balancers, Amazon CloudFront distributions, Amazon Route 53 hosted zones, and your AWS Global Accelerator accelerators.
+
+**note:** Advanced is $3,000 / month  / org. Gain access to DDoS Response Team (DRT)
