@@ -86,9 +86,9 @@
 
 * RequestCount
 
-* SpilloverCount
+* SpilloverCount (Classic Only; request rejecting)
 
-* SurgeQueueLength
+* SurgeQueueLength (Classic Only; Pending Requests; Queue 1024)
 
 * UnHealthyHostCount
 
@@ -123,6 +123,30 @@ Can use WAF.
 > Each access log file is automatically encrypted using SSE-S3 before it is stored in your S3 bucket and decrypted when you access it.
 
 **note:** A Cloud Guru; Access Logs are good because they are more permanent than the logs in the EC2 instances (ephemeral)
+
+### Error Messages
+
+**note:** A Cloud Guru
+
+* 400: malformed
+
+* 401: unauthorized
+
+* 403: forbidden, e.g. WAF
+
+* 460: Client timeout
+
+* 463: Bad X-Forwarded-For
+
+* 500: ELB error
+
+* 502: Bad Gateway: Target sent bad response
+
+* 503: No registered targets
+
+* 504: Gateway Timeout: Target timeout
+
+* 561: Unauthorized
 
 ## Exercises
 
