@@ -28,6 +28,8 @@
 
 -AWS-[Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 
+**note:** A Cloud Guru; neither Throughput Opt. or Cold HDD can be used for boot.
+
 > Amazon EBS volumes are placed in a specific Availability Zone where they are automatically replicated to protect you from the failure of a single component. All EBS volume types offer durable snapshot capabilities and are designed for 99.999% availability.
 
 -AWS-[Amazon EBS features](https://aws.amazon.com/ebs/features/)
@@ -167,6 +169,46 @@
 * VolumeWriteOps
 
 -AWS-[Amazon CloudWatch metrics for Amazon EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html)
+
+**note:** A Cloud Guru; VolumeQueueLenth is another important Metric; should be 0.
+
+### Volume Status Checks
+
+> Volume status checks enable you to better understand, track, and manage potential inconsistencies in the data on an Amazon EBS volume. They are designed to provide you with the information that you need to determine whether your Amazon EBS volumes are impaired, and to help you control how a potentially inconsistent volume is handled.
+
+&nbsp;
+
+> Volume status checks are automated tests that run every 5 minutes and return a pass or fail status. If all checks pass, the status of the volume is ok. If a check fails, the status of the volume is impaired. If the status is insufficient-data, the checks may still be in progress on the volume. You can view the results of volume status checks to identify any impaired volumes and take any necessary actions.
+
+&nbsp;
+
+> When Amazon EBS determines that a volume's data is potentially inconsistent, the default is that it disables I/O to the volume from any attached EC2 instances, which helps to prevent data corruption. After I/O is disabled, the next volume status check fails, and the volume status is impaired.
+
+&nbsp;
+
+> If the consistency of a particular volume is not a concern, and you'd prefer that the volume be made available immediately if it's impaired, you can override the default behavior by configuring the volume to automatically enable I/O.
+
+&nbsp;
+
+> The I/O performance status check compares actual volume performance to the expected performance of a volume and alerts you if the volume is performing below expectations. This status check is only available for io1 volumes that are attached to an instance
+
+**note:** A Cloud Guru, Volume Status: ok, warning (only for IO1 - degraded or sererly degraded), impaired (I01 - Stalled), insufficient data.
+
+**note:** Looks like there are no built-in way to automate catching a volume status check change.
+
+### Initialization
+
+> There is a significant increase in latency when you first access each block of data on a new EBS volume that was created from a snapshot. You can avoid this performance hit using one of the following options:
+
+&nbsp;
+
+> Access each block prior to putting the volume into production. This process is called initialization (formerly known as pre-warming). For more information, see Initializing Amazon EBS volumes.
+
+&nbsp;
+
+> Enable fast snapshot restore on a snapshot to ensure that the EBS volumes created from it are fully-initialized at creation and instantly deliver all of their provisioned performance. For more information, see Amazon EBS fast snapshot restore.
+
+-AWS-[Amazon EBS volume performance on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html)
 
 ## Exercises
 

@@ -108,6 +108,22 @@
 
 Can use WAF.
 
+> You can use request tracing to track HTTP requests from clients to targets or other services. When the load balancer receives a request from a client, it adds or updates the X-Amzn-Trace-Id header before sending the request to the target. Any services or applications between the load balancer and the target can also add or update this header.
+
+### Access Logs
+
+> Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses.
+
+&nbsp;
+
+> Access logging is an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logging for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify as compressed files.
+
+&nbsp;
+
+> Each access log file is automatically encrypted using SSE-S3 before it is stored in your S3 bucket and decrypted when you access it.
+
+**note:** A Cloud Guru; Access Logs are good because they are more permanent than the logs in the EC2 instances (ephemeral)
+
 ## Exercises
 
 ### Create Target Group
