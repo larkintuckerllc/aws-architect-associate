@@ -39,6 +39,8 @@ Enterprise: Minutes
 
 * Service Health Dashboard at status.aws.amazon.com
 
+* Personal Health Dashboard linked off Service Heatlh Dashboard (Global)
+
 * Elasticity: Temporary scaling, Scaleablity: Permanent scaling
 
 * Highly Available: Allow degradation, Fault Tolerant: No degradation
