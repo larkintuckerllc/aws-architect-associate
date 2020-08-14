@@ -120,6 +120,20 @@
 
 -AWS-[Caching Strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html)
 
+### Monitoring
+
+> The following CloudWatch metrics offer good insight into ElastiCache performance. In most cases, we recommend that you set CloudWatch alarms for these metrics so that you can take corrective action before performance issues occur.
+
+- CPUUtilization: This is a host-level metric reported as a percentage. For more information, see Host-Level Metrics. Generally speaking, we suggest you set your threshold at 90% of your available CPU.
+
+(Redis) Because Redis is single-threaded, the actual threshold value should be calculated as a fraction of the node's total capacity.
+
+- SwapUsage: This metric should not exceed 50 MB.
+
+- Evictions: recommend that you determine your own alarm threshold
+
+- CurrConnections: recommend that you determine your own alarm threshold
+
 ## Exercises
 
 ### Create Redis (Not Cluster-Mode)
