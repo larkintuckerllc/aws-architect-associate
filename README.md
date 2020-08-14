@@ -31,8 +31,16 @@ Enterprise: Minutes
 
 * Use Tags to organize resources; billing or automation
 
+**note:** A Cloud Guru; tags are case sensitive, e.g., Name vs. name
+
+* You can use resource groups to organize your AWS resources. Resource groups make it easier to manage and automate tasks on large numbers of resources at one time.
+
+**note:** Resource Groups are regional. Can be used with Systems Manager among other things.
+
 * Service Health Dashboard at status.aws.amazon.com
 
 * Elasticity: Temporary scaling, Scaleablity: Permanent scaling
 
 * Highly Available: Allow degradation, Fault Tolerant: No degradation
+
+* Create Billing Alarm: In CloudWatch; Alarms > Billing
