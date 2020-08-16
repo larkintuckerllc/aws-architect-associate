@@ -22,6 +22,18 @@
 
 -AWS-[CloudFront Use Cases](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/IntroductionUseCases.html)
 
+**note:** A Cloud Guru; Cache Hit Ratio determines how effective caching is. To make effective;
+
+* TTL: Use Cache-Control header on Origin
+
+* Query parameters are case sensitive
+
+* For cookies, can create cache behavior to ignore cookies (e.g., for static content)
+
+* If enable caching based on request headers, be specific.
+
+* If origin does not support compression, can disable checking Accept-Encoding header
+
 ### Signed URLs
 
 > Many companies that distribute content over the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee. To securely serve this private content by using CloudFront, you can do the following:

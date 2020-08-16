@@ -10,14 +10,15 @@
 
 **note:** A Cloud Guru, data stored twice in each of 3 AZ (6 copies). Storage in units of 10GB, compute up to 32 CPU and 244 GB
 
+**note:** A Cloud Guru, encryption at rest is enabled by default.
+
 > Primary DB instance – Supports read and write operations, and performs all of the data modifications to the cluster volume. Each Aurora DB cluster has one primary DB instance.
 
 &nbsp;
 
 > Aurora Replica – Connects to the same storage volume as the primary DB instance and supports only read operations. Each Aurora DB cluster can have up to 15 Aurora Replicas in addition to the primary DB instance. Maintain high availability by locating Aurora Replicas in separate Availability Zones. Aurora automatically fails over to an Aurora Replica in case the primary DB instance becomes unavailable. You can specify the failover priority for Aurora Replicas. Aurora Replicas can also offload read workloads from the primary DB instance.
 
-
-
+**note:** A Cloud Guru. Lowest tier become primary.
 &nbsp;
 
 > For Aurora multi-master clusters, all DB instances have read/write capability. In this case, the distinction between primary instance and Aurora Replica doesn't apply. For discussing replication topology where the clusters can use either single-master or multi-master replication, we call these writer and reader DB instances.

@@ -202,6 +202,8 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 * Spread – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
 
+**note:** A Cloud Guru: Limited to 7 instances.
+
 -AWS-[Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
 
 ### Network Interfaces
