@@ -40,6 +40,14 @@
 
 -AWS-[Amazon RDS DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html)
 
+**note:** A Cloud Guru: CLI aws rds describe-db-instances
+
+**note:** A Cloud Guru: Since run on EBS, same rules about having to create Snapshot to encrypt; i.e., cannot encrypt on fly. Then copy (can be different Region) to encrypt.
+
+**note:** To share encrypted snapshot with another account; must use custom KMS key to share with another account. Cannot be public, or proprietry.
+
+**note:** RDS has a concept of maintainence window (much like other managed instances, e.g., Redshift)
+
 ### DB Instance Classes
 
 > Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
@@ -136,6 +144,8 @@
 
 -AWS-[High Availability (Multi-AZ) for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html)
 
+**note:** A Cloud Guru: Backend are restores use backup. You can force failover by rebooting.
+
 ### Read Replicas
 
 > Amazon RDS uses the MariaDB, MySQL, Oracle, PostgreSQL, and Microsoft SQL Server DB engines' built-in replication functionality to create a special type of DB instance called a read replica from a source DB instance. Updates made to the source DB instance are asynchronously copied to the read replica. You can reduce the load on your source DB instance by routing read queries from your applications to the read replica. Using read replicas, you can elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads.
@@ -162,7 +172,7 @@
 
 -AWS-[Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 
-**note:** A Cloud Guru: Up to 5 RR
+**note:** A Cloud Guru: Up to 5 RR. Key Metric: Replica Lag
 
 ### Backups
 
