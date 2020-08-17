@@ -130,11 +130,21 @@
 
 -AWS-[Permissions Boundaries for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 
+### NotAction
+
+> NotAction is an advanced policy element that explicitly matches everything except the specified list of actions. Using NotAction can result in a shorter policy by listing only a few actions that should not match, rather than including a long list of actions that will match.
+
+-AWS-[IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html)
+
 ### A Cloud Guru
 
 ![ARN](arn.png)
 
 ![Policy](policy.png)
+
+Users can use MFA with CLI, but requires using sts get-session-token.  Can then enforce that all API calls include MFA, including from CLI.
+
+IAM includes a "Credential Report" that can be used to determine if users have MFA.
 
 ## Exercises
 

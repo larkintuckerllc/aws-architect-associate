@@ -53,3 +53,21 @@ To use an IdP, you create an IAM identity provider entity to establish a trust r
 Amazon Cognito Identity Pools (Federated Identities): Amazon Cognito identity pools (federated identities) enable you to create unique identities for your users and federate them with identity providers. With an identity pool, you can obtain temporary, limited-privilege AWS credentials to access other AWS services.
 
 **note:** From my experience.  Basically automates the selection of IAM Roles. Can also be used to store data for identities and be pushed to mobile.
+
+* AWS Security Token Service (AWS STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).
+
+When an administrator creates a role for cross-account access they establish trust between the account that owns the role and the resources (trusting account) and the account that contains the users (trusted account). To do this, the administrator of the trusting account specifies the trusted account number as the Principal in the role's trust policy. That allows potentially any user in the trusted account to assume the role. To complete the configuration, the administrator of the trusted account must give specific groups or users in that account permission to switch to the role.
+
+A policy that grants a user permission to assume a role must include a statement with the Allow effect on the following:
+
+The sts:AssumeRole action
+
+The Amazon Resource Name (ARN) of the role in a Resource element
+
+Can use Switch Role in AWS Console to switch to a role (can be in a different account). The Role needs a trust policy that allows user to assume role.
+
+By default, when you switch roles, your AWS Management Console session lasts for 1 hour. IAM user sessions are 12 hours by default. IAM users who switch roles in the console are granted the role maximum session duration, or the remaining time in the IAM user's session, whichever is less.
+
+**note:** A Cloud Guru
+
+![STS](sts.png)
