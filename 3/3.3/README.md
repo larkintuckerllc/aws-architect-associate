@@ -56,7 +56,9 @@ Use Distributor to create and deploy packages to managed instances.
 
 > Secrets Manager enables you to replace hardcoded credentials in your code, including passwords, with an API call to Secrets Manager to retrieve the secret programmatically. This helps ensure the secret can't be compromised by someone examining your code, because the secret no longer exists in the code. Also, you can configure Secrets Manager to automatically rotate the secret for you according to a specified schedule. This enables you to replace long-term secrets with short-term ones, significantly reducing the risk of compromise.
 
-**note:** A Cloud Guru. Cost. Full secrets rotation integration with RDS. Can use Lambda trigger on a key rotation. Can generate random secrets. Can be shared across accounts. 
+**note:** A Cloud Guru. Cost. Full secrets rotation integration with RDS. Can use Lambda trigger on a key rotation. Can generate random secrets. Can be shared across accounts.
+
+**note:** A Cloud Guru. Amplification Attach (legit servers tricked into sending to spoofed IP), Slowloris Attack (sends partial requests to keep open connections)
 
 > AWS provides AWS Shield Standard and AWS Shield Advanced for protection against DDoS attacks. AWS Shield Standard is automatically included at no extra cost beyond what you already pay for AWS WAF and your other AWS services. For added protection against DDoS attacks, AWS offers AWS Shield Advanced. AWS Shield Advanced provides expanded DDoS attack protection for your Amazon Elastic Compute Cloud instances, Elastic Load Balancing load balancers, Amazon CloudFront distributions, Amazon Route 53 hosted zones, and your AWS Global Accelerator accelerators.
 
