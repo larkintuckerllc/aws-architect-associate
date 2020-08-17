@@ -92,6 +92,8 @@
 
 **note:** A Cloud Guru: Instance store backed EC2 cannot be stopped; so if underlying HW fails, you are screwed (ephemeral).
 
+**note:** AMI can be shared using permission; owner pays for storage of it. Can be public. Cannot copy AMI that is encrypted; can only copy snapshot (and have KMS key). Cannot copy propriatary AMIs (billingProducts code); can do this by running an AMI and then snapshot.
+
 ### Monitoring
 
 > System status checks – monitor the AWS systems required to use your instance to ensure that they are working properly. These checks detect problems with your instance that require AWS involvement to repair.
