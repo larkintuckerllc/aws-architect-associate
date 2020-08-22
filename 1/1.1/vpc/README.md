@@ -8,6 +8,10 @@
 
 -AWS-[What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
 
+**note:** A Cloud Guru, 5 reserved IP addresses per subnet.
+
+**note:** NAT GW does not support IPV6 where-as IG does.
+
 ### Default VPC
 
 ![Default VPC](default.png)
