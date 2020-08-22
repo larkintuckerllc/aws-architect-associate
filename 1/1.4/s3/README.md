@@ -100,9 +100,13 @@
 
 -AWS-[Share an object with others](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html)
 
+**note:** A Cloud Guru; default 1 hour.
+
 > An AWS account—for example, Account A—can grant another AWS account, Account B, permission to access its resources such as buckets and objects. Account B can then delegate those permissions to users in its account. In this example scenario, a bucket owner grants cross-account permission to another account to perform specific bucket operations.
 
 -AWS-[Example 2: Bucket owner granting cross-account bucket permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html)
+
+**note:** A Cloud Guru, policies can include a condition on source IP address.
 
 ### Static Website
 
