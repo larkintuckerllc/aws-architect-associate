@@ -50,6 +50,8 @@ Use Distributor to create and deploy packages to managed instances.
 
 * AWS Inspector: Amazon Inspector tests the network accessibility of your Amazon EC2 instances and the security state of your applications that run on those instances. Amazon Inspector assesses applications for exposure, vulnerabilities, and deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed list of security findings that is organized by level of severity.
 
+**note:** A Cloud Guru; uses tags to target. Requires its own agent. Multiple rules package.
+
 > AWS CloudHSM provides hardware security modules in the AWS Cloud. A hardware security module (HSM) is a computing device that processes cryptographic operations and provides secure storage for cryptographic keys.
 
 **note:**: A Cloud Guru. FIPS 140-3; single tenant multi-az (you have to enable). You supply the key and it runs in a VPC. No AWS API; you use third-party solution. It runs in its own VPC and exposes ENI (like PrivateLink) into your VPC.
@@ -71,3 +73,7 @@ AWS WAF also lets you control access to your content. Based on conditions that y
 **note:** A Cloud Guru; Uses filtering rules, e.g., ip addresses, sql injection, etc. Returns 403 code if fails. Allow except, Allow only, or count.
 
 > AWS Firewall Manager simplifies your AWS WAF, AWS Shield Advanced, and Amazon VPC security groups administration and maintenance tasks across multiple accounts and resources. With Firewall Manager, you set up your AWS WAF firewall rules, Shield Advanced protections, and Amazon VPC security groups just once. The service automatically applies the rules and protections across your accounts and resources, even as you add new resources.
+
+* AWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. AWS Trusted Advisor provides real-time guidance to help you provision your resources following AWS best practices.
+
+**note:** A Cloud Guru; requires at least business or enterprise support plans.

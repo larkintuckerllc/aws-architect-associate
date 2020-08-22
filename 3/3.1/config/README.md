@@ -84,6 +84,8 @@ AWS Config tracks changes in the configuration of your AWS resources, and it reg
 
 -AWS-[Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html)
 
+**note:** A Cloud Guru; popular AWS rules. s3-public-bucket-read-prohibited (also write otion)
+
 ## Exercises
 
 ### Basic
@@ -104,4 +106,4 @@ AWS Config tracks changes in the configuration of your AWS resources, and it reg
 
 3. Delete bucketx
 
-4. Delete Role
+. Delete Role
