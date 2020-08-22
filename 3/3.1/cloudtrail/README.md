@@ -62,6 +62,8 @@
 
 > Sending data that is logged by CloudTrail to CloudWatch Logs or CloudWatch Events requires that you have at least one trail.
 
+**note:** Log files have digests that can be used to detect tampering (takes an hour for this to create). Log files are delivered every 5 minutes (with up to 15 minute delay on activity).
+
 ## Exercises
 
 Follow:

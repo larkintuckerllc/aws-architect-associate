@@ -46,3 +46,5 @@ Enterprise: Minutes
 * Highly Available: Allow degradation, Fault Tolerant: No degradation
 
 * Create Billing Alarm: In CloudWatch; Alarms > Billing
+
+**note:** A Cloud Guru.  Each service has service limits that can be upped by contacting AWS. Trusted Advisor is good for telling you where problem with service limits.
