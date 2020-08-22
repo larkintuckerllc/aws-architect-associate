@@ -8,7 +8,7 @@
 
 -AWS-[What is Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
-**note:** A Cloud Guru; 
+**note:** A Cloud Guru; PV (Paravirtualization) is lighter virtualization than HVM (Hardware Virtualization); Now equally performant.  Windows only on HVM.  On PV, Ring 0 = Host OS, Ring 1 = Guest OS, Ring 3 = Guest Process. Memory and disks are scrubbed between users.
 
 ### Key Pair
 
@@ -51,6 +51,8 @@
 > Dedicated Host: A Dedicated Host is a physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses, including Windows Server, SQL Server, and SUSE Linux Enterprise Server (subject to your license terms), and can also help you meet compliance requirements
 
 -AWS-[Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/)
+
+**note:** A Cloud Guru: A Dedicated Instance is still dedicated hardware but is lighter, i.e., you cannot get at host level details (billed by instance). Basically, is not multi-tenant but can be "moved around". Dedicated hosts you are billed by the host and not the instances running on it.
 
 > EC2 usage is calculated by either the hour or the second, depending on which AMI you're running.
 
