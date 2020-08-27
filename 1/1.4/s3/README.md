@@ -68,6 +68,8 @@
 
 -AWS-[Operations on objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
 
+**note:** A Cloud Guru; recommended multi-part upload for files over 100 MB.
+
 ### Permissions
 
 > By default, all Amazon S3 resources—buckets, objects, and related subresources (for example, lifecycle configuration and website configuration)—are private: only the resource owner, an AWS account that created it, can access the resource. The resource owner can optionally grant access permissions to others by writing an access policy.
@@ -137,6 +139,8 @@
 > If a bucket's versioning configuration is MFA Delete–enabled, the bucket owner must include the x-amz-mfa request header in requests to permanently delete an object version or change the versioning state of the bucket. Requests that include x-amz-mfa must use HTTPS. The header's value is the concatenation of your authentication device's serial number, a space, and the authentication code displayed on it.
 
 -AWS-[Using MFA delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html)
+
+**note:** A Cloud Guru; each version of an Object is billable.
 
 ### S3 Batch Operations
 
@@ -215,10 +219,10 @@
 > S3 Glacier Deep Archive—Use for archiving data that rarely needs to be accessed. Data stored in the S3 Glacier Deep Archive storage class has a minimum storage duration period of 180 days and a default retrieval time of 12 hours. If you have deleted, overwritten, or transitioned to a different storage class an object before the 180-day minimum, you are charged for 180 days.
 
 &nbsp;
-
+Glacier
 > However, the S3 Glacier and S3 Glacier Deep Archive objects are not available for real-time access. You must first restore the S3 Glacier and S3 Glacier Deep Archive objects before you can access them.
 
-&nbsp;
+Objects that you archive to the S3 Glacier or S3 Glacier Deep Archive storage classes are not accessible in real time. You must first initiate a restore request, and then wait until a temporary copy of the object is available for the duration (number of days) that you specify in the request. 
 
 > Durability: 99.999999999 (11 9s) except RRS 99.99 (4 9s)
 
@@ -230,7 +234,7 @@
 
 > The following are the available retrieval options when restoring an archived object:
 
-* Expedited (Glacier: minutes) 
+* Expedited (Glacier: minutes)
 * Standard (Glacier: hours) (Deep Archive: 1 day)
 * Bulk (Glacier: day) (Deep Archive: 2 day)
 
@@ -305,7 +309,7 @@
 
 > Expiration actions—Define when objects expire. Amazon S3 deletes expired objects on your behalf.
 
-**note:** A Cloud Guru: based on creation date.
+**note:** A Cloud Guru: based on creation date. Also, can target using tags or prefixes.
 
 -AWS-[Object lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 
@@ -448,6 +452,12 @@ AWS Lambda – Invoke a Lambda function and provide the event message as an argu
 Amazon S3 event notifications are designed to be delivered at least once. Typically, event notifications are delivered in seconds but can sometimes take a minute or longer.
 
 If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent. If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket. With versioning, every successful write will create a new version of your object and will also send an event notification.
+
+### Misc
+
+**note:** A Cloud Guru; option for Requestor Pays for transfer charges.
+
+**note:** A Cloud Guru; supports both web hosting and BitTorrent.
 
 ## Exercises
 
