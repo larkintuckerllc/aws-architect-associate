@@ -50,6 +50,18 @@
 
 > Each table in DynamoDB has a quota of 20 global secondary indexes (default quota) and 5 local secondary indexes per table.
 
+In a DynamoDB table, each key value must be unique. However, the key values in a global secondary index do not need to be unique.
+
+A projection is the set of attributes that is copied from a table into a secondary index. The partition key and sort key of the table are always projected into the index; you can project other attributes to support your application's query requirements. When you query an index, Amazon DynamoDB can access any attribute in the projection as if those attributes were in a table of their own.
+
+DynamoDB automatically synchronizes each global secondary index with its base table. When an application writes or deletes items in a table, any global secondary indexes on that table are updated asynchronously, using an eventually consistent model.
+
+A table with many global secondary indexes incurs higher costs for write activity than tables with fewer indexes
+
+When you create a global secondary index on a provisioned mode table, you must specify read and write capacity units for the expected workload on that index. The provisioned throughput settings of a global secondary index are separate from those of its base table. A Query operation on a global secondary index consumes read capacity units from the index, not the base table. When you put, update or delete items in a table, the global secondary indexes on that table are also updated. These index updates consume write capacity units from the index, not from the base table.
+
+**note:** Can use Global Secondary index to create clone of table with different capacity (for different customers)
+
 &nbsp;
 
 > DynamoDB Streams is an optional feature that captures data modification events in DynamoDB tables. The data about these events appear in the stream in near-real time, and in the order that the events occurred.
