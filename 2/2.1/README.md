@@ -19,3 +19,5 @@
 **note**: A Cloud Guru: Master, Core (task and data), Task nodes (optional task only). Log on Master (can be configured at start to replicate to S3)
 
 * Amazon Elastic Container Registry (Amazon ECR) is a managed AWS Docker registry service that is secure, scalable, and reliable. Amazon ECR supports private Docker repositories with resource-based permissions using AWS IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to push, pull, and manage images.
+
+* Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Currently, the Hyperledger Fabric open source framework is supported. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.
