@@ -41,3 +41,7 @@ Tape Gateway – A tape gateway provides cloud-backed virtual tape storage. The 
 * Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices. For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.
 
 * Amazon WorkDocs is a fully managed, secure enterprise storage and sharing service with strong administrative controls and feedback capabilities that improve user productivity. Files are stored in the cloud, safely and securely. Your files are only visible to you, and your designated contributors and viewers. Other members of your organization do not have access to any of your files unless you specifically grant them access.
+
+* Consistency Model: ACID; Atomic, Consistent, Isolated, and Durable
+
+* Consistency Model: BASE; Basic, Soft, and Eventual Consistency
