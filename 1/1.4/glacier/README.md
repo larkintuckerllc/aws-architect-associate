@@ -8,6 +8,9 @@ In S3 Glacier, a vault is a Glacier Glacier storing archives. When you create a 
 
 An archive can be any data such as a photo, video, or document and is a base unit of storage in S3 Glacier. Each archive has a unique ID and an optional description. Note that you can only specify the optional description during the upload of an archive. S3 Glacier assigns the archive an ID, which is unique in the AWS Region in which it is stored.
 
+A single archive is limited to 40 TB in size, but there is no limit to
+the total amount of data you can store in the service
+
 Any archive operation, such as upload, download, or deletion, requires that you use the AWS Command Line Interface (CLI) or write code. There is no console support for archive operations.
 
 When you make a request to retrieve data from S3 Glacier, you initiate a retrieval job for an archive. Once the retrieval job completes, your data will be available to download or access it using Amazon Elastic Compute Cloud (Amazon EC2) for 24 hours. 

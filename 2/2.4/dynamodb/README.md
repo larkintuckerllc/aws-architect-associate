@@ -270,6 +270,14 @@ You can specify the TTL setting for the query cache when you create a new DAX cl
 
 -AWS-[How It Works: DynamoDB Time to Live (TTL)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html)
 
+### Multi-Tenancy
+
+Silo: Might consider still using a single Tables with IAM Policies, otherwise use prefixs to name Tables
+
+Bridge: Essentially same as Silo
+
+Pool: 
+
 ## Exercises
 
 ### Create Table

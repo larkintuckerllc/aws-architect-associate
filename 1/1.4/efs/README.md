@@ -68,6 +68,8 @@
 
 > File systems in the Max I/O mode can scale to higher levels of aggregate throughput and operations per second. This scaling is done with a tradeoff of slightly higher latencies for file metadata operations. Highly parallelized applications and workloads, such as big data analysis, media processing, and genomics analysis, can benefit from this mode.
 
+However, if your overall Amazon EFS workload will exceed 7,000 file operations per second per file system, we recommend the files system use Max I/O performance mode. 
+
 &nbsp;
 
 > To move to a different performance mode, migrate the data to a different file system that was created in the other performance mode.

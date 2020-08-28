@@ -17,3 +17,10 @@
 > The AWS Snowball service uses physical storage devices to transfer large amounts of data between Amazon Simple Storage Service (Amazon S3) and your onsite data storage location at faster-than-internet speeds. By working with AWS Snowball, you can save time and money. Snowball provides powerful interfaces that you can use to create jobs, track data, and track the status of your jobs through to completion.
 
 -AWS-[What Is an AWS Snowball Device?](https://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html)
+
+Snowball is physically secured by using an industry- standard Trusted Platform
+Module (TPM) that uses a dedicated processor designed to detect any
+unauthorized modifications to the hardware, firmware, or software.
+Snowball is included in the AWS HIPAA compliance program so you can use
+Snowball to transfer large amounts of Protected Health Information (PHI) data
+into and out of AWS.54

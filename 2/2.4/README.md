@@ -27,3 +27,13 @@ With AWS DMS, you can perform one-time migrations, and you can replicate ongoing
 * PREVIEW: Amazon Timestream is a fast, scalable, fully managed time series database service for IoT and operational applications that makes it easy to store and analyze trillions of events per day at 1/10th the cost of relational databases.
 
 * Amazon Elasticsearch Service (Amazon ES) is a managed service that makes it easy to deploy, operate, and scale Elasticsearch clusters in the AWS Cloud. Elasticsearch is a popular open-source search and analytics engine for use cases such as log analytics, real-time application monitoring, and clickstream analysis. With Amazon ES, you get direct access to the Elasticsearch APIs; existing code and applications work seamlessly with the service.
+
+* Three strategies for multi-tenancy
+
+Silo: Think separate DB
+
+Bridge: Think different PostgreSQL Schemas
+
+Pool: Think DynamoDB Partition Key
+
+Generally, Silo is more expensive, complicated, and more complient with Pool being the opposite

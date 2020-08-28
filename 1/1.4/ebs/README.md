@@ -212,6 +212,10 @@
 
 -AWS-[Amazon EBS volume performance on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html)
 
+### MISC
+
+EBS volumes are designed for an annual failure rate (AFR) of between 0.1 and 0.2 percent, where failure refers to a complete or partial loss of the volume, depending on the size and performance of the volume.
+
 ## Exercises
 
 ### Create EBS Volume
