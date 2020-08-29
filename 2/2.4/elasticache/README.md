@@ -72,6 +72,22 @@
 
 -AWS-[Data Security in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/encryption.html)
 
+To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple Availability Zones.
+
+When running Redis, we recommend that you enable Multi-AZ on your replication group so that ElastiCache will automatically fail over to a replica if the primary node fails.
+
+Amazon ElastiCache clusters running Redis can back up their data. You can use the backup to restore a cluster or seed a new cluster. The backup consists of the cluster's metadata, along with all of the data in the cluster. All backups are written to Amazon Simple Storage Service (Amazon S3), which provides durable storage. At any time, you can restore your data by creating a new Redis cluster and populating it with data from a backup. With ElastiCache, you can manage backups using the AWS Management Console, the AWS Command Line Interface (AWS CLI), and the ElastiCache API.
+
+For production use, we strongly recommend that you always enable Redis backups,
+and retain them for a minimum of 7 days. In practice, retaining them for 14 or 30 days
+will provide better safety in the event of an application bug that ends up corrupting data.
+
+**note:** AWS has a propetary automatic re-sharing approach that involves no downtime.
+
+Redis has two categories of data structures: simple keys and counters, and
+multidimensional sets, lists, and hashes. The bad news is the second category cannot
+be sharded horizontally. But the good news is that simple keys and counters can.
+
 ## MemCache
 
 > The Memcached engine supports Auto Discovery. Auto Discovery is the ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes. With Auto Discovery, your application doesn't need to manually connect to individual nodes. Instead, your application connects to a configuration endpoint.
@@ -108,6 +124,9 @@
 
 - Stale data
 
+Apply a lazy caching strategy anywhere in your application where you have data that is
+going to be read often, but written infrequently.
+
 > Write-Through: The write-through strategy adds data or updates data in the cache whenever data is written to the database.
 
 &nbsp;
@@ -128,11 +147,73 @@
 
 (Redis) Because Redis is single-threaded, the actual threshold value should be calculated as a fraction of the node's total capacity.
 
+For Redis, ElastiCache provides two different types of metrics for monitoring CPU
+usage: CPUUtilization and EngineCPUUtilization. Because Redis is single-threaded,
+you need to multiply the CPU percentage by the number of cores to get an accurate
+measure of CPUUtilization. For smaller node types with one or two vCPUs, use the
+CPUUtilization metric to monitor your workload. For larger node types with four or more
+vCPUs, we recommend monitoring the EngineCPUUtilization metric, which reports the
+percentage of usage on the Redis engine core. 
+
 - SwapUsage: This metric should not exceed 50 MB.
 
 - Evictions: recommend that you determine your own alarm threshold
 
 - CurrConnections: recommend that you determine your own alarm threshold
+
+In extreme cases, a single hot cache key can create a hot spot that overwhelms a single
+cache node. In this case, having good metrics about your cache, especially your most
+popular cache keys, is crucial to designing a solution. One solution is to create a
+mapping table that remaps very hot keys to a separate set of cache nodes. 
+
+### More Caching Strategies - Memcached
+
+Problem with Memcached and simple sharding approach:
+
+Unfortunately, this particular approach suffers from a fatal flaw due to the way that
+modulo works. As the number of cache nodes scales up, most hash keys will get
+remapped to new nodes with empty caches, as a side effect of using modulo. You can
+calculate the number of keys that would be remapped to a new cache node by dividing
+the old node count by the new node count.
+
+Luckily, many modern client libraries include consistent hashing. Although you shouldn't
+need to write your own consistent hashing solution from scratch, it's important that you
+are aware of consistent hashing, so that you can ensure it's enabled in your client. For
+many libraries, it's still not the default behavior, even when supported by the library.
+
+Auto Discovery only works for Memcached, not Redis. When ElastiCache repairs or
+replaces a cache node, the Domain Name Service (DNS) name of the cache node will
+remain the same, meaning your application doesn't need to use Auto Discovery to deal
+with common failures. You only need Auto Discovery support if you dynamically scale 
+Amazon Web Services Performance at Scale with Amazon ElastiCache
+the size of your cache cluster on the fly, while your application is running.
+
+The two most interesting events that ElastiCache publishes, at least for the purposes of
+scaling our cache, are ElastiCache:AddCacheNodeComplete and
+ElastiCache:RemoveCacheNodeComplete. These events are published when cache
+nodes are added or removed from the cluster. By listening for these events, your
+application can dynamically reconfigure itself to detect the new cache nodes.
+
+### More Caching Strategies
+
+Also known as dog piling, the thundering herd effect is what happens when many
+different application processes simultaneously request a cache key, get a cache miss,
+and then each hits the same database query in parallel.
+
+TTLs aside, this effect is also common when adding a new cache node, because the
+new cache node's memory is empty. In both cases, the solution is to prewarm the cache
+by following these steps:
+
+Finally, there is one last subtle side effect of using TTLs everywhere. If you use the
+same TTL length (say 60 minutes) consistently, then many of your cache keys might
+expire within the same time window, even after prewarming your cache. One strategy
+that's easy to implement is to add some randomness to your TTL
+
+### MISC
+
+Amazon ElastiCache does not currently support using Auto Scaling to scale the number
+of cache nodes in a cluster. To change the number of cache nodes, you can use either
+the AWS Management Console or the AWS API to modify the cluster.
 
 ## Exercises
 
