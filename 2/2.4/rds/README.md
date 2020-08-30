@@ -48,6 +48,8 @@
 
 **note:** RDS has a concept of maintainence window (much like other managed instances, e.g., Redshift)
 
+Can set minors to automatic, majors are always manual. AWS can deprecate with notice 3 minor- 6 month major.
+
 ### DB Instance Classes
 
 > Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
