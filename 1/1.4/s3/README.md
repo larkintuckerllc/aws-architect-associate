@@ -345,6 +345,8 @@ Objects that you archive to the S3 Glacier or S3 Glacier Deep Archive storage cl
 
 > Objects created with server-side encryption using CMKs stored in AWS KMS. By default, Amazon S3 does not replicate objects encrypted using KMS CMKs. However, you can explicitly enable replication of these objects in the replication configuration, and provide relevant information so that Amazon S3 can replicate these objects.
 
+note: You have to tell what KMS key to use in the target bucket.
+
 &nbsp;
 
 > Objects that are stored in S3 Glacier or S3 Glacier Deep Archive storage class.
