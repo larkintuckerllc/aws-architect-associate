@@ -8,9 +8,11 @@
 
 -AWS-[What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
 
-**note:** A Cloud Guru, 5 reserved IP addresses per subnet.
+**note:** A Cloud Guru, 5 reserved IP addresses per subnet. 1, Network, 2 Router, 3, DNS, 4 Future, Last: Broadcast
 
 **note:** NAT GW does not support IPV6 where-as IG does.
+
+**note:** Each Account has own notion of AZ.
 
 ### Default VPC
 
@@ -20,7 +22,23 @@
 
 ![Private VPC](private.png)
 
+### NAT
+
+You can use a NAT device to enable instances in a private subnet to connect to the internet (for example, for software updates) or other AWS services, but prevent the internet from initiating connections with the instances.
+
+AWS offers two kinds of NAT devices—a NAT gateway or a NAT instance. We recommend NAT gateways, as they provide better availability and bandwidth over NAT instances. The NAT Gateway service is also a managed service that does not require your administration efforts. A NAT instance is launched from a NAT AMI. You can choose to use a NAT instance for special purposes.
+
+Each EC2 instance performs source/destination checks by default. This means that the instance must be the source or destination of any traffic it sends or receives. However, a NAT instance must be able to send and receive traffic when the source or destination is not itself. Therefore, you must disable source/destination checks on the NAT instance.
+
 ### Misc
+
+OSI Model: Please Do Not Throw Sausage Pizza Away
+
+AWS No Support Multicast (L2 feature)
+
+TCP / UDP / ICMP
+
+Ports; Well Known and Ephemeral
 
 > VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs or Amazon S3.
 
@@ -31,12 +49,6 @@
 **note:** Can filter by Rejected, Accepted, or All traffic
 
 **note:** Not all traffic is logged, e.g., DNS to AWS not, Windows activation, or MetaData API, DHCP
-
-![Direct Connect](direct_connect_overview.png)
-
--AWS-[What is AWS Direct Connect?](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
-
-**note:** Multi-Account Direct Connect for accounts in same Organizaation.
 
 > A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
 
@@ -119,20 +131,6 @@ Option 2 requires script to take over the EIP address.
 ![Private Link](private-link.png)
 
 -AWS-[AWS PrivateLink](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-privatelink.html)
-
-> A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks.
-
--AWS-[What is a transit gateway?](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
-
-![Transit Gateway](transit-gateway.png)
-
-> By default, instances that you launch into an Amazon VPC can't communicate with your own (remote) network. You can enable access to your remote network from your VPC by creating an AWS Site-to-Site VPN (Site-to-Site VPN) connection, and configuring routing to pass traffic through the connection.
-
--AWS-[What is AWS Site-to-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
-
-> Building on the AWS managed VPN options described previously, you can securely communicate from one site to another using the AWS VPN CloudHub. The AWS VPN CloudHub operates on a simple hub-and-spoke model that you can use with or without a VPC. Use this approach if you have multiple branch offices and existing internet connections and would like to implement a convenient, potentially low-cost hub-and-spoke model for primary or backup connectivity between these remote offices.
-
--AWS-[AWS VPN CloudHub](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub.html)
 
 ![VPC Costs](vpc-cost.png)
 
