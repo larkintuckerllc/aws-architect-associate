@@ -45,3 +45,7 @@ Active Directory authentication (user-based)
 Mutual authentication (certificate-based)
 
 Single sign-on (SAML-based federated authentication) (user-based)
+
+## BGP
+
+Allows for dynamic routing using weights and automous system numbers (ASN), e.g., allows for failover between a Direct Connect and Site-to-Site VPN.

@@ -28,7 +28,9 @@ You can use a NAT device to enable instances in a private subnet to connect to t
 
 AWS offers two kinds of NAT devices—a NAT gateway or a NAT instance. We recommend NAT gateways, as they provide better availability and bandwidth over NAT instances. The NAT Gateway service is also a managed service that does not require your administration efforts. A NAT instance is launched from a NAT AMI. You can choose to use a NAT instance for special purposes.
 
-Each EC2 instance performs source/destination checks by default. This means that the instance must be the source or destination of any traffic it sends or receives. However, a NAT instance must be able to send and receive traffic when the source or destination is not itself. Therefore, you must disable source/destination checks on the NAT instance.
+For NAT Instance: Each EC2 instance performs source/destination checks by default. This means that the instance must be the source or destination of any traffic it sends or receives. However, a NAT instance must be able to send and receive traffic when the source or destination is not itself. Therefore, you must disable source/destination checks on the NAT instance.
+
+NAT Gateway supports up to 45 Gbps and is HA. No Security Group.
 
 ### Misc
 
@@ -93,6 +95,10 @@ Option 2 requires script to take over the EIP address.
 > A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, or with a VPC in another AWS account. The VPCs can be in different regions (also known as an inter-region VPC peering connection).
 
 **note:** No transitive networking.
+
+### Internet Gateway
+
+Option for Egress-Only IG; used in place of NAT GW for IPV6
 
 ## Exercises
 
