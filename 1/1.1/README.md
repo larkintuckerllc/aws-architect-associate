@@ -18,6 +18,8 @@
 
 > A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks.
 
+**note:** Regional resource. Transit Gateway across different regions can peer with each other to enable VPC communications across regions.
+
 -AWS-[What is a transit gateway?](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
 
 ![Transit Gateway](transit-gateway.png)

@@ -21,3 +21,5 @@ Route tables determine where network traffic from your VPC is directed. In your 
 Network traffic sent over the Site-to-Site VPN connection to the virtual private gateway is free but network traffic sent over the Site-to-Site VPN connection from the virtual private gateway to the endpoint is billed at the standard AWS data transfer rate.
 
 If you have multiple AWS Site-to-Site VPN connections, you can provide secure communication between sites using the AWS VPN CloudHub. This enables your remote sites to communicate with each other, and not just with the VPC. The VPN CloudHub operates on a simple hub-and-spoke model that you can use with or without a VPC.
+
+**note:** For redundancy, can setup multiple customer gateways to single Virtual Private Gateway.
