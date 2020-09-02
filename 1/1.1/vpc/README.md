@@ -82,50 +82,6 @@ Ports; Well Known and Ephemeral
 
 Option 2 requires script to take over the EIP address.
 
-> AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local and global users. Global Accelerator directs traffic to optimal endpoints over the AWS global network. This improves the availability and performance of your internet applications that are used by a global audience. Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the AWS Region Table.
-
-&nbsp;
-
-> By default, Global Accelerator provides you with two static IP addresses that you associate with your accelerator. (Or, instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator.) The static IP addresses are anycast from the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions, which increases the availability of your applications. Endpoints can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that are located in one AWS Region or multiple Regions.
-
--AWS-[What is AWS Global Accelerator?](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)
-
-> The static IP addresses accept incoming traffic onto the AWS global network from the edge location that is closest to your users.
-
--AWS-[How AWS Global Accelerator works](https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works.html)
-
-> Static IP addresses: Global Accelerator provides you with a set of two static IP addresses that are anycast from the AWS edge network. If you bring your own IP address range to AWS (BYOIP), you can instead assign IP addresses from your own pool to use with your accelerator.
-
-&nbsp;
-
-> Accelerator: An accelerator directs traffic to optimal endpoints over the AWS global network to improve the availability and performance of your internet applications.
-
-&nbsp;
-
-> DNS name: Global Accelerator assigns each accelerator a default Domain Name System (DNS) name, similar to a1234567890abcdef.awsglobalaccelerator.com, that points to the static IP addresses... or set up DNS records to route traffic using your own custom domain name.
-
-&nbsp;
-
-> Network zone: A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure... If one IP address from a network zone becomes unavailable due to IP address blocking by certain client networks, or network disruptions, then client applications can retry on the healthy static IP address from the other isolated network zone.
-
-&nbsp;
-
-> Listener: A listener processes inbound connections from clients to Global Accelerator, based on the port (or port range) and protocol that you configure... Each listener has one or more endpoint groups associated with it, and traffic is forwarded to endpoints in one of the groups.
-
-**note:** A Cloud Guru, Can enable client affinity; like sticky sessions.
-
-**note:** A Cloud Guru, Can have health check.
-
-> Endpoint group: Each endpoint group is associated with a specific AWS Region. Endpoint groups include one or more endpoints in the Region.
-
-**note:** A Cloud Guru, Can be weighted "dial"
-
-> Endpoint: Endpoints can be Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses. An Application Load Balancer endpoint can be an internet-facing or internal.
-
-**note:** A Cloud Guru, Can be weighted "weight"
-
--AWS-[AWS Global Accelerator components](https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-components.html)
-
 > AWS PrivateLink enables you to connect to some AWS services, services hosted by other AWS accounts (referred to as endpoint services), and supported AWS Marketplace partner services, via private IP addresses in your VPC. The interface endpoints are created directly inside of your VPC, using elastic network interfaces and IP addresses in your VPC’s subnets. That means that VPC Security Groups can be used to manage access to the endpoints.
 
 ![Private Link](private-link.png)
