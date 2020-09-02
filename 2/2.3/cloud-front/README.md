@@ -16,6 +16,8 @@
 
 > You must allow public read access to the bucket and files so that CloudFront URLs can serve content from the bucket.
 
+**note:** Alternative is to use an OAI (Origin Access Identity); some special "User" that can be assigned access to Bucket.
+
 -AWS-[Getting Started with a Simple CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.html)
 
 > Using Lambda@Edge with CloudFront enables a variety of ways to customize the content that CloudFront delivers.
@@ -97,6 +99,10 @@
 **note:** Sent request but timed out.
 
 -AWS-[Troubleshooting Error Responses from Your Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html)
+
+CloudFront uses SNI (Server Name Indication) to distinguish certs on hosts that share same IP address. If don't use it is expensive to have dedicated IP addresses across all edge locations (only needed for ancient browsers).
+
+Security policies determine which version of TLS to support.
 
 ## Exercises
 
