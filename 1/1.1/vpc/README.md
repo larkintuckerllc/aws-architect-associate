@@ -62,7 +62,7 @@ Ports; Well Known and Ephemeral
 
 **note:** A Cloud Guru, S3 and DynamoDB using GW endpoint
 
-**note:** GW endpoint modifies route table
+**note:** GW endpoint modifies route table and Interface enpoint uses DNS to an EIP.  Interface EP secured using SecurityGroup and GW endpoint uses GW policies.
 
 -AWS-[VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html)
 
@@ -91,6 +91,8 @@ Option 2 requires script to take over the EIP address.
 ![VPC Costs](vpc-cost.png)
 
 > A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. Instances in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, or with a VPC in another AWS account. The VPCs can be in different regions (also known as an inter-region VPC peering connection).
+
+**note:** No transitive networking.
 
 ## Exercises
 
