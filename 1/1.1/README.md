@@ -8,11 +8,17 @@
 
 ![Direct Connect](direct_connect_overview.png)
 
+![Direct Connect](dc.png)
+
+![Direct Connect Gateway](dcg.png)
+
 **note:** Multi-Account Direct Connect for accounts in same Organization.
 
 **note:** Direct Connect is not redundant; think of using Site-to-Site VPN as backup.
 
 **note:** For additional security can use Direct Connect with Site-to-Site VPN.
+
+**note:** Private Virtual Interface (VIF) used between Direct Connect and VPC
 
 ## Transit Gateway
 
