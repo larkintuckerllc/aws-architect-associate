@@ -60,6 +60,8 @@ Use Distributor to create and deploy packages to managed instances.
 
 > You also can share your portfolios with other AWS accounts and allow the administrator of those accounts to distribute your portfolios with additional constraints, such as limiting which EC2 instances a user can create. Through the use of portfolios, permissions, sharing, and constraints, you can ensure that users are launching products that are configured properly for the organization’s needs and standards.
 
+**note:** Launch Constraint = Role to Launch, Notification Constraint = SNS Topic on Stack details, Template Contraint = Wizard to limit features. When another account uses a portfolio, they need to supply their own Role to Launch.
+
 * Amazon CloudWatch: Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are variables you can measure for your resources and applications.
 
 * AWS Inspector: Amazon Inspector tests the network accessibility of your Amazon EC2 instances and the security state of your applications that run on those instances. Amazon Inspector assesses applications for exposure, vulnerabilities, and deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed list of security findings that is organized by level of severity.
@@ -69,6 +71,8 @@ Use Distributor to create and deploy packages to managed instances.
 > AWS CloudHSM provides hardware security modules in the AWS Cloud. A hardware security module (HSM) is a computing device that processes cryptographic operations and provides secure storage for cryptographic keys.
 
 **note:**: A Cloud Guru. FIPS 140-3; single tenant multi-az (you have to enable). You supply the key and it runs in a VPC. No AWS API; you use third-party solution. It runs in its own VPC and exposes ENI (like PrivateLink) into your VPC.
+
+**note:** Classic CloudHSM is expensive upfront and not redundant; new CloudHSM has no upfront cost and is redundant.
 
 > Secrets Manager enables you to replace hardcoded credentials in your code, including passwords, with an API call to Secrets Manager to retrieve the secret programmatically. This helps ensure the secret can't be compromised by someone examining your code, because the secret no longer exists in the code. Also, you can configure Secrets Manager to automatically rotate the secret for you according to a specified schedule. This enables you to replace long-term secrets with short-term ones, significantly reducing the risk of compromise.
 
