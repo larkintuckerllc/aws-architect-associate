@@ -48,3 +48,49 @@ Enterprise: Minutes
 * Create Billing Alarm: In CloudWatch; Alarms > Billing
 
 **note:** A Cloud Guru.  Each service has service limits that can be upped by contacting AWS. Trusted Advisor is good for telling you where problem with service limits.
+
+### Misc
+
+Cloud Adoption Framework
+
+* Business
+
+* People
+
+* Governance
+
+* Platform
+
+* Security
+
+* Operations
+
+## Migration Strategies
+
+* Re-Host: aka "Lift and Shift", e.g., clone to EC2
+
+* Re-Platform: aka "Lift and Reshape", e.g., move to managed RDS
+
+* Re-Purchase: e.g., move to Salesforce
+
+* Re-Architecture: most comprehensive
+
+* Retire
+
+* Do Nothing
+
+TOGAF: The Open Group Architectural Framework
+
+AWS Application Discovery Service helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers. Application Discovery Service is integrated with AWS Migration Hub, which simplifies your migration tracking as it aggregates your migration status information into a single console. You can view the discovered servers, group them into applications, and then track the migration status of each application from the Migration Hub console in your home region.
+
+Cloud Transformation Maturity Model (CTMM)
+
+* Project
+
+* Foundation
+
+* Migration
+
+* Optimization
+
+Scale Out / In: Horz., Scale Up / Down: Vert.
