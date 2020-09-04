@@ -95,3 +95,36 @@ AWS WAF also lets you control access to your content. Based on conditions that y
 * AWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. AWS Trusted Advisor provides real-time guidance to help you provision your resources following AWS best practices.
 
 **note:** A Cloud Guru; requires at least business or enterprise support plans.
+
+## DDOS
+
+UDP reflection attacks exploit the fact that UDP is a stateless protocol. Attackers can
+craft a valid UDP request packet listing the attack target’s IP as the UDP source IP
+address. The attacker has now falsified—spoofed—the UDP request packet’s source
+IP. An attacker then sends the UDP packet containing the spoofed source IP to an
+intermediate server. The server is tricked into sending its UDP response packets to the
+targeted victim IP rather than back to the attacker’s IP address. 
+
+In a SYN flood attack, a malicious client sends a large number of SYN packets, but
+never sends the final ACK packets to complete the handshakes. The server is left
+waiting for a response to the half-open TCP connections and eventually runs out of
+capacity to accept new TCP connections. 
+
+In an HTTP flood attack, an attacker sends HTTP requests that appear to be from a
+real user of the web application. Some HTTP floods target a specific resource, while
+more complex HTTP floods attempt to emulate human interaction with the application.
+
+Cache-busting attacks are a type of HTTP flood that uses variations in the query string
+to circumvent content delivery network (CDN) caching.
+
+With a WordPress XML-RPC flood attack, also known as a WordPress pingback
+flood, an attacker misuses the XML-RPC API function of a website hosted on the
+WordPress content management software to generate a flood of HTTP requests.
+
+Application layer attacks can also target domain name system (DNS) services. The
+most common of these attacks is a DNS query flood in which an attacker uses many
+well-formed DNS queries to exhaust the resources of a DNS server.
+
+If a web application is delivered over TLS, an attacker can also choose to attack the
+TLS negotiation process. TLS is computationally expensive so an attacker can reduce a
+server’s availability by sending unintelligible data.

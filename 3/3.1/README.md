@@ -93,3 +93,5 @@ Boundary is different for Instructure, Container, and Abstracted
 * Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following Data sources: VPC Flow Logs, AWS CloudTrail management event logs, Cloudtrail S3 data event logs, and DNS logs. It uses threat intelligence feeds, such as lists of malicious IP addresses and domains, and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment.
 
 * SIEM: Security Information and Management System
+
+* IDS: Intrustion Detection and IPS: Intrustion Prevention

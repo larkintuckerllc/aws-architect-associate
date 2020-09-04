@@ -74,6 +74,14 @@
 
 -AWS-Tutorial: [Creating and configuring an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html)
 
+**note**: A Cloud Guru:
+
+* Publishing Account, e.g., Network
+
+* Identity Account, replace by using SSO
+
+* Logging Account, same as in AWS Control Tower
+
 ## Exercises
 
 [Tutorial: Creating and configuring an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html)
