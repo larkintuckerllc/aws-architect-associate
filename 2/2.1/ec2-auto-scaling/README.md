@@ -40,7 +40,7 @@
 
 > In most cases, step scaling policies are a better choice than simple scaling policies, even if you have only a single scaling adjustment.
 
--AWS-[Step and Simple Scaling Policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
+`
 
 **note:** A Cloud Guru; Options
 
@@ -53,6 +53,8 @@
 * Scale on Demand
 
 * Predictive Scaling (new)
+
+**note:** A Cloud Guru; Cooldown prevents repeated scaling events for dynamic; default 300 seconds
 
 ## Exercises
 
