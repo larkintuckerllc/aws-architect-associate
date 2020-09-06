@@ -94,3 +94,11 @@ Cloud Transformation Maturity Model (CTMM)
 * Optimization
 
 Scale Out / In: Horz., Scale Up / Down: Vert.
+
+Naming AWS Resources:
+
+[0-9], [a-z], [A-Z], -, ., =, +, ,, _, @
+
+not: # or ? (hash or query)
+
+Billing metric data is stored in the US East (N. Virginia) Region and represents worldwide charges. This data includes the estimated charges for every service in AWS that you use, in addition to the estimated overall total of your AWS charges.
