@@ -104,6 +104,22 @@ CloudFront uses SNI (Server Name Indication) to distinguish certs on hosts that 
 
 Security policies determine which version of TLS to support.
 
+### Cache Behaviors
+
+A cache behavior lets you configure a variety of CloudFront functionality for a given URL path pattern for files on your website. For example, one cache behavior might apply to all .jpg files in the images directory on a web server that you're using as an origin server for CloudFront. The functionality that you can configure for each cache behavior includes:
+
+The path pattern.
+
+If you have configured multiple origins for your CloudFront distribution, which origin you want CloudFront to forward your requests to.
+
+Whether to forward query strings to your origin.
+
+Whether accessing the specified files requires signed URLs.
+
+Whether to require users to use HTTPS to access those files.
+
+The minimum amount of time that those files stay in the CloudFront cache regardless of the value of any Cache-Control headers that your origin adds to the files.
+
 ## Exercises
 
 ### Create Basic Distribution

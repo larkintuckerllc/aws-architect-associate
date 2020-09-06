@@ -6,11 +6,13 @@
 
 * Amazon Kinesis Data Streams: You can use Amazon Kinesis Data Streams to collect and process large streams of data records in real time. Kinesis Data Streams is part of the Kinesis streaming data platform, along with Kinesis Data Firehose, Kinesis Video Streams, and Kinesis Data Analytics.
 
-**note:** A Cloud Guru.
+**note:** A Cloud Guru. Each shard can process 1000 msgs / second. Limit is 500 shards
 
-Kinesis Streams: Stream data from Producers stored in Shards from 1 - 7 Days.  Can be read by Consumer to do something.
+**note:** Data consists of a partition key, sequence number, and blob (less than 1 MB)
 
-Kinesis Data Firehose: No persistent storage, has to be analyzed on the fly, e.g., by Lambda.
+Kinesis Streams: Stream data from Producers stored in Shards from 1 - 7 Days.  Can be read by Consumer to do something. Default 1 day.
+
+Kinesis Data Firehose: Amazon Kinesis Data Firehose is a fully managed service for delivering real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Redshift, Amazon Elasticsearch Service (Amazon ES), Splunk, and any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 
 Kinesis Data Analytics: Works with either Streams or Firehose and does analysis.
 

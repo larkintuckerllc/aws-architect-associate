@@ -18,6 +18,8 @@
 
 > Items – Each table contains zero or more items. An item is a group of attributes that is uniquely identifiable among all of the other items.
 
+**note:** A Cloud Guru, items less than 500 KB
+
 &nbsp;
 
 > Attributes – Each item is composed of one or more attributes. An attribute is a fundamental data element, something that does not need to be broken down any further.
@@ -277,6 +279,17 @@ Silo: Might consider still using a single Tables with IAM Policies, otherwise us
 Bridge: Essentially same as Silo
 
 Pool: 
+
+### Partitions (Under Hood)
+
+DynamoDB creates partions using a hash of the partition key.  The number of partitions is based on both R/W units and size.
+
+RCU / 3000 + WCU / 1000
+Data Size / 10 GB
+
+and then Max
+
+Then divides up RCU and WCU across all partitions. So pick partition key to spead load.
 
 ## Exercises
 
