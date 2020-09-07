@@ -24,6 +24,18 @@
 
 -AWS-[Launch Templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html)
 
+A launch template is similar to a launch configuration, in that it specifies instance configuration information. Included are the ID of the Amazon Machine Image (AMI), the instance type, a key pair, security groups, and the other parameters that you use to launch EC2 instances. However, defining a launch template instead of a launch configuration allows you to have multiple versions of a template.
+
+A launch configuration is an instance configuration template that an Auto Scaling group uses to launch EC2 instances. When you create a launch configuration, you specify information for the instances. Include the ID of the Amazon Machine Image (AMI), the instance type, a key pair, one or more security groups, and a block device mapping. If you've launched an EC2 instance before, you specified the same information in order to launch the instance.
+
+An Auto Scaling group is associated with one launch configuration at a time, and you can't modify a launch configuration after you've created it. To change the launch configuration for an Auto Scaling group, use an existing launch configuration as the basis for a new launch configuration. Then, update the Auto Scaling group to use the new launch configuration.
+
+If you plan to continue to use launch configurations with Amazon EC2 Auto Scaling, be aware that not all Auto Scaling group features are available. For example, you cannot create an Auto Scaling group that launches both Spot and On-Demand Instances or that specifies multiple instance types. You must use a launch template to configure these features.
+
+When a configuration change requires replacing instances, and you have a large number of instances in your Auto Scaling group, it can be difficult to manually replace instances a few at a time. With an instance refresh, it's easier to update the instances in your Auto Scaling group.
+
+During an instance refresh, Amazon EC2 Auto Scaling takes a set of instances out of service, terminates them, and then launches a set of instances with the new configuration. After that, instances are replaced on a rolling basis. In a rolling update, when a new instance launches, Amazon EC2 Auto Scaling waits until the instance passes a health check and completes warm-up, before moving on to replace another instance. This process repeats until all instances are replaced.
+
 ### Step / Simple Scaling
 
 > With step scaling and simple scaling, you choose scaling metrics and threshold values for the CloudWatch alarms that trigger the scaling process. You also define how your Auto Scaling group should be scaled when a threshold is in breach for a specified number of evaluation periods.
@@ -55,6 +67,46 @@
 * Predictive Scaling (new)
 
 **note:** A Cloud Guru; Cooldown prevents repeated scaling events for dynamic; default 300 seconds
+
+### Misc
+
+After certain actions occur, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling compensates by rebalancing the Availability Zones.
+
+You can attach a running EC2 instance that meets certain criteria to your Auto Scaling group. After the instance is attached, it is managed as part of the Auto Scaling group.
+
+### Lifecycle Hooks
+
+Lifecycle hooks enable you to perform custom actions by pausing instances as an Auto Scaling group launches or terminates them. When an instance is paused, it remains in a wait state either until you complete the lifecycle action using the complete-lifecycle-action command or the CompleteLifecycleAction operation, or until the timeout period ends (one hour by default).
+
+You can perform a custom action using one or more of the following options:
+
+Define an EventBridge target to invoke a Lambda function when a lifecycle action occurs. The Lambda function is invoked when Amazon EC2 Auto Scaling submits an event for a lifecycle action to EventBridge. The event contains information about the instance that is launching or terminating, and a token that you can use to control the lifecycle action. (SAME AS BELOW)
+
+Define a notification target for the lifecycle hook. Amazon EC2 Auto Scaling sends a message to the notification target. The message contains information about the instance that is launching or terminating, and a token that you can use to control the lifecycle action.
+
+Create a script that runs on the instance as the instance starts. The script can control the lifecycle action using the ID of the instance on which it runs.
+
+### Maximum Instance Lifetime
+
+When you use the AWS Management Console to update an Auto Scaling group, or when you use the AWS CLI or AWS SDKs to create or update an Auto Scaling group, you can set the optional maximum instance lifetime parameter. The maximum instance lifetime feature does the work of replacing instances that have been in service for the maximum amount of time allowed.
+
+When configuring the maximum instance lifetime for your Auto Scaling group, you must specify a value of at least 604,800 seconds (7 days). To clear a previously set value, specify a new value of 0.
+
+Depending on the maximum duration specified and the size of the Auto Scaling group, the rate of replacement may vary. In general, Amazon EC2 Auto Scaling replaces instances one at a time, with a pause in between replacements. However, the rate of replacement will be higher when there is not enough time to replace each instance individually based on the maximum duration that you specified. In this case, Amazon EC2 Auto Scaling will replace several instances at once, by up to 10 percent of the current capacity of your Auto Scaling group at a time.
+
+### Instance Refresh
+
+During an instance refresh, Amazon EC2 Auto Scaling takes a set of instances out of service, terminates them, and then launches a set of instances with the new configuration. After that, instances are replaced on a rolling basis. In a rolling update, when a new instance launches, Amazon EC2 Auto Scaling waits until the instance passes a health check and completes warm-up, before moving on to replace another instance. This process repeats until all instances are replaced.
+
+Before starting an instance refresh, you can configure the minimum healthy percentage to control the level of disruption to your application. If your application doesn't pass health checks, the rolling update process waits for a time period of up to 60 minutes after it reaches the minimum healthy threshold before it eventually fails. The intention is to give it time to recover in case of a temporary issue. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration. To fix a failed instance refresh, first resolve the underlying issue that caused the update to fail, and then initiate another instance refresh.
+
+After determining that a newly launched instance is healthy, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. It provides a window for each instance to warm up after launching, which you can configure.
+
+### ELB
+
+The default health checks for an Auto Scaling group are EC2 status checks only. If an instance fails these status checks, the Auto Scaling group considers the instance unhealthy and replaces it.
+
+If you configure the Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the ELB health checks. If you attach multiple load balancer target groups or Classic Load Balancers to the group, all of them must report that the instance is healthy in order for it to consider the instance healthy. If any one of them reports an instance as unhealthy, the Auto Scaling group replaces the instance, even if other ones report it as healthy.
 
 ## Exercises
 

@@ -96,9 +96,13 @@ Option 2 requires script to take over the EIP address.
 
 **note:** No transitive networking.
 
-### Internet Gateway
+### IPV6
 
 Option for Egress-Only IG; used in place of NAT GW for IPV6
+
+Associates a /56 IPv6 CIDR block with the VPC. For more information, see Your VPC. The size of the IPv6 CIDR block is fixed (/56) and the range of IPv6 addresses is automatically allocated from Amazon's pool of IPv6 addresses (you cannot select the range yourself).
+
+Creates a subnet with an /24 IPv4 CIDR block and a /64 IPv6 CIDR block in the VPC. The size of the IPv6 CIDR block is fixed (/64).
 
 ## Exercises
 
