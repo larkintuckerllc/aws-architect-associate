@@ -96,11 +96,31 @@ Depending on the maximum duration specified and the size of the Auto Scaling gro
 
 ### Instance Refresh
 
+**note:** NEW AS OF 2020
+
 During an instance refresh, Amazon EC2 Auto Scaling takes a set of instances out of service, terminates them, and then launches a set of instances with the new configuration. After that, instances are replaced on a rolling basis. In a rolling update, when a new instance launches, Amazon EC2 Auto Scaling waits until the instance passes a health check and completes warm-up, before moving on to replace another instance. This process repeats until all instances are replaced.
 
 Before starting an instance refresh, you can configure the minimum healthy percentage to control the level of disruption to your application. If your application doesn't pass health checks, the rolling update process waits for a time period of up to 60 minutes after it reaches the minimum healthy threshold before it eventually fails. The intention is to give it time to recover in case of a temporary issue. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration. To fix a failed instance refresh, first resolve the underlying issue that caused the update to fail, and then initiate another instance refresh.
 
 After determining that a newly launched instance is healthy, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. It provides a window for each instance to warm up after launching, which you can configure.
+
+**note:** OLD APPROACH USING CLOUDFORMATION
+
+      "UpdatePolicy": {
+        "AutoScalingRollingUpdate": {
+          "MaxBatchSize": "2",
+          "MinInstancesInService": "1",
+          "PauseTime": "PT10M",
+          "SuspendProcesses": ["AlarmNotification"],
+          "WaitOnResourceSignals": true
+        }
+      }
+
+and then using scripts on the Instance.
+
+To signal the Auto Scaling group, use the cfn-signal helper script or SignalResource API.
+
+To have instances wait for an Elastic Load Balancing health check before they signal success, add a health-check verification by using the cfn-init helper script. For an example, see the verify_instance_health command in the Auto Scaling rolling updates sample template.
 
 ### ELB
 
