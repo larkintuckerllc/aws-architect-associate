@@ -273,6 +273,26 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 **note:** A Cloud Guru; can run in a recuring way
 
+### Status Checks
+
+There are two types of status checks: system status checks and instance status checks.
+
+System status checks monitor the AWS systems on which your instance runs. These checks detect underlying problems with your instance that require AWS involvement to repair.
+
+Instance status checks monitor the software and network configuration of your individual instance. Amazon EC2 checks the health of the instance by sending an address resolution protocol (ARP) request to the network interface (NIC).
+
+The following are examples of problems that can cause instance status checks to fail:
+
+Failed system status checks
+
+Incorrect networking or startup configuration
+
+Exhausted memory
+
+Corrupted file system
+
+Incompatible kernel
+
 ## Exercises
 
 ### Create Key Pair
